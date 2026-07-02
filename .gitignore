@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Composer
+vendor/
+
+# WordPress cache
+wp-content/cache/
+
+# Uploads (optional - usually very large)
+wp-content/uploads/
+
+# Hostinger temp files
+error_log
