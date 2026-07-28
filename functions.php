@@ -74,6 +74,13 @@ function grit_enqueue_assets()
         '1.0'
     );
 
+    wp_enqueue_style(
+        'grit-featured-projects',
+        get_stylesheet_directory_uri() . '/assets/css/featured-projects.css',
+        array('grit-global'),
+        '1.0'
+    );
+
     // JS
 
     wp_enqueue_script(
@@ -99,6 +106,41 @@ function grit_enqueue_assets()
         '1.0',
         true
     );
+
+    wp_enqueue_script(
+        'grit-featured-projects',
+        get_stylesheet_directory_uri() . '/assets/js/featured-projects.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+
+     wp_enqueue_script(
+        'gsap',
+        'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js',
+        array(),
+        '3.13.0',
+        true
+    );
 }
 
 add_action('wp_enqueue_scripts', 'grit_enqueue_assets');
+
+
+function grit_featured_projects_shortcode() {
+
+    ob_start();
+
+    $file = get_stylesheet_directory() . '/template-parts/components/featured-projects.php';
+
+    if (file_exists($file)) {
+        include $file;
+    }
+
+    return ob_get_clean();
+}
+
+add_shortcode(
+    'grit_featured_projects',
+    'grit_featured_projects_shortcode'
+);
