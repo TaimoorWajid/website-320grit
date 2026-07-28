@@ -1,0 +1,40 @@
+
+/* 25+ years card on hero section */
+.hero-exp-card {
+    position: absolute;
+
+    right: 0px;
+    bottom: 0px;
+    width: 170px;
+    height: 170px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(10, 10, 10, .85);
+    border: 2px solid #792CD5;
+
+    text-align: center;
+}
+
+.hero-exp-card .number {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+}
+
+.hero-exp-card .text {
+    margin-top: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.35;
+
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* 25+ years card on hero section */

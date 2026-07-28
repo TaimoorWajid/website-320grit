@@ -1,0 +1,26 @@
+::-webkit-scrollbar {
+  width: 0px;
+  transition: width 0.15s ease;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0a0a0a;
+  border-radius: 3px;
+}
+
+html.sb-visible::-webkit-scrollbar {
+  width: 6px;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html.sb-visible {
+  scrollbar-width: thin;
+  scrollbar-color: #0a0a0a transparent;
+}

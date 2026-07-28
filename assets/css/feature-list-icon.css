@@ -1,0 +1,37 @@
+.grit-feature-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.grit-feature-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.grit-icon{
+    width:18px;
+    height:18px;
+    flex-shrink:0;
+    position:relative;
+}
+
+.grit-icon::before{
+    content:"\203A";
+    position:absolute;
+    left:0;
+    top:5px;
+    transform:translateY(-50%);
+    color:#792CD5;
+    font-size:35px;
+    font-weight:600;
+    line-height:1px;
+}
+
+.grit-text{
+    color:#fff;
+    font-size:18px;
+    font-weight:500;
+    line-height:1.5;
+}

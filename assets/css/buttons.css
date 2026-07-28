@@ -1,0 +1,165 @@
+/* ==========================
+   Button Group
+========================== */
+
+.btn-group-320{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+/* ==========================
+   Common Button
+========================== */
+
+.btn-320{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+
+    min-width:260px;
+    height:60px;
+
+    padding:0 30px;
+
+    font-family:'Barlow',sans-serif;
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius: 10px;
+
+    border:1px solid transparent;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================
+   Primary
+========================== */
+
+.btn-primary{
+
+    background:#792CD5;
+    color:#fff;
+    border-color:#792CD5;
+
+}
+
+
+/* ==========================
+   Outline
+========================== */
+
+.btn-outline{
+
+    background:transparent;
+    color:#fff;
+    border-color:rgba(255,255,255,.35);
+
+}
+
+
+/* ==========================
+   Arrow
+========================== */
+
+.btn-arrow{
+
+    width:18px;
+    height:18px;
+
+    stroke:currentColor;
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+
+    transition:transform .3s ease;
+
+}
+
+
+/* ==========================
+   Hover
+========================== */
+
+.btn-320:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(121,44,213,.30);
+
+}
+
+.btn-320:hover .btn-arrow{
+
+    transform:translateX(5px);
+
+}
+
+
+/* Primary Hover */
+
+.btn-primary:hover{
+
+    background:#8A42F0;
+    border-color:#8A42F0;
+
+}
+
+
+/* Outline Hover */
+
+.btn-outline:hover{
+
+    background:#792CD5;
+    border-color:#792CD5;
+    color:#fff;
+
+}
+
+
+/* Click */
+
+.btn-320:active{
+
+    transform:translateY(0);
+
+}
+
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:768px){
+
+    .btn-group-320{
+
+        flex-direction:column;
+
+    }
+
+    .btn-320{
+
+        width:100%;
+        min-width:100%;
+
+    }
+
+}
