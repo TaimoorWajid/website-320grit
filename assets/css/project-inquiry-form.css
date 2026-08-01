@@ -1,0 +1,719 @@
+/* =========================================================
+   PREMIUM PROJECT INQUIRY FORM
+   Gravity Forms - Form ID 1
+   ========================================================= */
+
+.project-inquiry-form {
+    --pi-orange: #FF5D0E;
+    --pi-orange-hover: #ff6d27;
+    --pi-bg: #101010;
+    --pi-bg-soft: #171717;
+    --pi-border: rgba(255, 255, 255, 0.16);
+    --pi-border-hover: rgba(255, 255, 255, 0.38);
+    --pi-text: #ffffff;
+    --pi-muted: rgba(255, 255, 255, 0.58);
+    --pi-placeholder: rgba(255, 255, 255, 0.34);
+    --pi-error: #ff5d5d;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: var(--pi-text);
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   GENERAL GRAVITY FORMS RESET
+   ========================================================= */
+
+.project-inquiry-form #gform_wrapper_1,
+.project-inquiry-form #gform_1 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.project-inquiry-form #gform_wrapper_1 {
+    background: transparent;
+}
+
+.project-inquiry-form #gform_1 *,
+.project-inquiry-form #gform_1 *::before,
+.project-inquiry-form #gform_1 *::after {
+    box-sizing: border-box;
+}
+
+
+/* Hide Gravity Forms default required legend */
+
+.project-inquiry-form .gform_heading {
+    display: none !important;
+}
+
+.project-inquiry-form .gform_required_legend {
+    display: none !important;
+}
+
+
+/* =========================================================
+   STEP INDICATOR
+   ========================================================= */
+
+.project-inquiry-form .gf_page_steps {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 65px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    position: relative;
+}
+
+.project-inquiry-form .gf_step {
+    display: flex !important;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.project-inquiry-form .gf_step:not(:last-child)::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    margin: 0 22px;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.project-inquiry-form .gf_step_number {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.48);
+    background: transparent;
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease;
+}
+
+.project-inquiry-form .gf_step_label {
+    margin-left: 11px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.42);
+    transition: color 0.35s ease;
+}
+
+
+/* Active step */
+
+.project-inquiry-form .gf_step_active .gf_step_number {
+    border-color: var(--pi-orange);
+    background: var(--pi-orange);
+    color: #fff;
+}
+
+.project-inquiry-form .gf_step_active .gf_step_label {
+    color: #fff;
+}
+
+
+/* Completed steps */
+
+.project-inquiry-form .gf_step_completed .gf_step_number {
+    border-color: var(--pi-orange);
+    background: transparent;
+    color: var(--pi-orange);
+}
+
+.project-inquiry-form .gf_step_completed .gf_step_label {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.project-inquiry-form .gf_step_completed:not(:last-child)::after {
+    background: var(--pi-orange);
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.project-inquiry-form .gform_fields {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 29px;
+    width: 100%;
+}
+
+.project-inquiry-form .gfield {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.project-inquiry-form .gfield--width-full {
+    grid-column: 1 / -1;
+}
+
+.project-inquiry-form .gfield--width-half {
+    grid-column: span 1;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.project-inquiry-form .gfield_label,
+.project-inquiry-form .gform-field-label {
+    color: var(--pi-text) !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em;
+    margin: 0 0 9px !important;
+}
+
+.project-inquiry-form .gfield_required {
+    color: var(--pi-orange) !important;
+}
+
+.project-inquiry-form .gform-field-label--type-sub {
+    color: rgba(255, 255, 255, 0.48) !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   TEXT / EMAIL / PHONE INPUTS
+   ========================================================= */
+
+.project-inquiry-form input[type="text"],
+.project-inquiry-form input[type="email"],
+.project-inquiry-form input[type="tel"],
+.project-inquiry-form input[type="url"],
+.project-inquiry-form select,
+.project-inquiry-form textarea {
+    width: 100% !important;
+    height: 54px !important;
+    min-height: 54px;
+    margin: 0 !important;
+    padding: 0 17px !important;
+
+    border: 1px solid var(--pi-border) !important;
+    border-radius: 0 !important;
+
+    background: rgba(255, 255, 255, 0.035) !important;
+    color: #fff !important;
+
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.project-inquiry-form input::placeholder,
+.project-inquiry-form textarea::placeholder {
+    color: var(--pi-placeholder) !important;
+    opacity: 1 !important;
+}
+
+.project-inquiry-form input:hover,
+.project-inquiry-form select:hover,
+.project-inquiry-form textarea:hover {
+    border-color: var(--pi-border-hover) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.project-inquiry-form input:focus,
+.project-inquiry-form select:focus,
+.project-inquiry-form textarea:focus {
+    border-color: var(--pi-orange) !important;
+    background: rgba(255, 255, 255, 0.055) !important;
+    box-shadow: 0 0 0 1px rgba(255, 93, 14, 0.12) !important;
+}
+
+
+/* =========================================================
+   NAME FIELD
+   ========================================================= */
+
+.project-inquiry-form #field_1_2 {
+    grid-column: span 1;
+}
+
+.project-inquiry-form #input_1_2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.project-inquiry-form #input_1_2 .gform-grid-col {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.project-inquiry-form #input_1_2 input {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   RADIO FIELD
+   ========================================================= */
+
+.project-inquiry-form #field_1_1 {
+    grid-column: span 1;
+}
+
+.project-inquiry-form #field_1_1 .gfield_radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px 18px;
+    margin: 0;
+}
+
+.project-inquiry-form #field_1_1 .gchoice {
+    display: inline-flex;
+    align-items: center;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+.project-inquiry-form #field_1_1 input[type="radio"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden;
+}
+
+.project-inquiry-form #field_1_1 .gform-field-label {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 !important;
+    padding: 11px 15px;
+    border: 1px solid var(--pi-border);
+    background: rgba(255, 255, 255, 0.025);
+    color: rgba(255, 255, 255, 0.68) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.project-inquiry-form #field_1_1 .gform-field-label:hover {
+    border-color: rgba(255, 93, 14, 0.55);
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+.project-inquiry-form #field_1_1 input[type="radio"]:checked + .gform-field-label {
+    border-color: var(--pi-orange);
+    background: rgba(255, 93, 14, 0.10);
+    color: #fff !important;
+}
+
+
+/* Built-in Other field */
+
+.project-inquiry-form #input_1_1_other {
+    width: 150px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    margin-left: 5px !important;
+    padding: 0 12px !important;
+}
+
+
+/* =========================================================
+   PHONE FIELD
+   ========================================================= */
+
+.project-inquiry-form #field_1_5 .gform-phone {
+    width: 100%;
+}
+
+.project-inquiry-form #field_1_5 .gform-phone__input-wrapper {
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr);
+    width: 100%;
+}
+
+.project-inquiry-form #field_1_5 .ginput_country-selector_container,
+.project-inquiry-form #field_1_5 .ginput_phone_container {
+    min-width: 0;
+}
+
+.project-inquiry-form #field_1_5 .gform-phone__country-selector {
+    width: 100%;
+    height: 54px !important;
+    border: 1px solid var(--pi-border) !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    color: #fff !important;
+}
+
+.project-inquiry-form #field_1_5 .gform-phone__input {
+    width: 100% !important;
+    height: 54px !important;
+    border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   SELECTS
+   ========================================================= */
+
+.project-inquiry-form select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    padding-right: 48px !important;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, rgba(255,255,255,.65) 50%),
+        linear-gradient(135deg, rgba(255,255,255,.65) 50%, transparent 50%) !important;
+    background-position:
+        calc(100% - 20px) 23px,
+        calc(100% - 14px) 23px !important;
+    background-size:
+        6px 6px,
+        6px 6px !important;
+    background-repeat: no-repeat !important;
+}
+
+.project-inquiry-form select option {
+    background: #171717;
+    color: #fff;
+}
+
+
+/* =========================================================
+   TEXTAREAS
+   ========================================================= */
+
+.project-inquiry-form textarea {
+    height: 180px !important;
+    min-height: 180px !important;
+    padding: 16px 17px !important;
+    resize: vertical;
+    line-height: 1.6 !important;
+}
+
+.project-inquiry-form #field_1_16,
+.project-inquiry-form #field_1_17 {
+    grid-column: span 1;
+}
+
+.project-inquiry-form .ginput_counter {
+    margin-top: 5px !important;
+    color: rgba(255,255,255,.32) !important;
+    font-size: 10px !important;
+}
+
+
+/* =========================================================
+   PAGE FOOTER / BUTTONS
+   ========================================================= */
+
+.project-inquiry-form .gform_page_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin: 45px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.project-inquiry-form .gform_page_footer .gform_previous_button {
+    margin-right: auto !important;
+}
+
+.project-inquiry-form .gform_page_footer button {
+    width: auto !important;
+    min-width: 150px;
+    height: 52px !important;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 0 24px !important;
+
+    border: 1px solid var(--pi-orange) !important;
+    border-radius: 0 !important;
+
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.13em !important;
+    text-transform: uppercase !important;
+
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* Continue / Submit */
+
+.project-inquiry-form .gform_next_button,
+.project-inquiry-form #gform_submit_button_1 {
+    background: var(--pi-orange) !important;
+    color: #fff !important;
+}
+
+.project-inquiry-form .gform_next_button:hover,
+.project-inquiry-form #gform_submit_button_1:hover {
+    background: var(--pi-orange-hover) !important;
+    border-color: var(--pi-orange-hover) !important;
+    transform: translateY(-2px);
+}
+
+
+/* Previous */
+
+.project-inquiry-form .gform_previous_button {
+    border-color: rgba(255,255,255,.22) !important;
+    background: transparent !important;
+    color: rgba(255,255,255,.65) !important;
+}
+
+.project-inquiry-form .gform_previous_button:hover {
+    border-color: rgba(255,255,255,.48) !important;
+    background: rgba(255,255,255,.05) !important;
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+.project-inquiry-form .gfield_error input,
+.project-inquiry-form .gfield_error select,
+.project-inquiry-form .gfield_error textarea {
+    border-color: var(--pi-error) !important;
+}
+
+.project-inquiry-form .gfield_validation_message,
+.project-inquiry-form .validation_message,
+.project-inquiry-form .gform_validation_errors {
+    color: #ff7777 !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 7px 0 0 !important;
+    font-size: 11px !important;
+}
+
+.project-inquiry-form .gform_validation_errors {
+    margin: 0 0 25px !important;
+    padding: 14px 16px !important;
+    border-left: 2px solid var(--pi-error) !important;
+    background: rgba(255, 93, 93, 0.07) !important;
+}
+
+
+/* =========================================================
+   HONEYPOT
+   ========================================================= */
+
+.project-inquiry-form #field_1_19 {
+    position: absolute !important;
+    left: -99999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   AJAX / LOADING
+   ========================================================= */
+
+.project-inquiry-form .gform_ajax_spinner {
+    margin-left: 12px !important;
+}
+
+.project-inquiry-form .gform_submission_error {
+    color: #fff;
+}
+
+
+/* =========================================================
+   CONFIRMATION
+   ========================================================= */
+
+.project-inquiry-form .gform_confirmation_wrapper {
+    padding: 55px 0;
+    text-align: left;
+}
+
+.project-inquiry-form .gform_confirmation_message {
+    color: #fff;
+    font-size: clamp(20px, 3vw, 34px);
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .project-inquiry-form {
+        width: 100%;
+    }
+
+    .project-inquiry-form .gf_page_steps {
+        margin-bottom: 40px;
+    }
+
+    .project-inquiry-form .gf_step {
+        justify-content: center;
+    }
+
+    .project-inquiry-form .gf_step:not(:last-child)::after {
+        margin: 0 9px;
+    }
+
+    .project-inquiry-form .gf_step_number {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 10px;
+    }
+
+    .project-inquiry-form .gf_step_label {
+        display: none;
+    }
+
+    .project-inquiry-form .gform_fields {
+        grid-template-columns: 1fr !important;
+        row-gap: 22px;
+    }
+
+    .project-inquiry-form .gfield,
+    .project-inquiry-form .gfield--width-half,
+    .project-inquiry-form .gfield--width-full {
+        grid-column: 1 / -1 !important;
+    }
+
+    .project-inquiry-form #input_1_2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .project-inquiry-form #field_1_1 .gfield_radio {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .project-inquiry-form #field_1_1 .gchoice {
+        width: 100% !important;
+    }
+
+    .project-inquiry-form #field_1_1 .gform-field-label {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .project-inquiry-form #input_1_1_other {
+        width: 100% !important;
+    }
+
+    .project-inquiry-form #field_1_5 .gform-phone__input-wrapper {
+        grid-template-columns: 95px minmax(0, 1fr);
+    }
+
+    .project-inquiry-form textarea {
+        min-height: 160px !important;
+        height: 160px !important;
+    }
+
+    .project-inquiry-form .gform_page_footer {
+        margin-top: 32px !important;
+    }
+
+    .project-inquiry-form .gform_page_footer button {
+        min-width: 0;
+        height: 50px !important;
+        padding: 0 17px !important;
+        font-size: 10px !important;
+    }
+
+    .project-inquiry-form #gform_submit_button_1 {
+        flex: 1;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .project-inquiry-form .gf_step:not(:last-child)::after {
+        margin: 0 6px;
+    }
+
+    .project-inquiry-form .gfield_label,
+    .project-inquiry-form .gform-field-label {
+        font-size: 11px !important;
+    }
+
+    .project-inquiry-form #field_1_1 .gfield_radio {
+        grid-template-columns: 1fr;
+    }
+
+    .project-inquiry-form .gform_page_footer {
+        gap: 8px;
+    }
+
+    .project-inquiry-form .gform_page_footer button {
+        padding: 0 13px !important;
+        letter-spacing: 0.08em !important;
+    }
+}
