@@ -273,9 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Capability Cards Stagger
-  gsap.from('.fa-why__card', {
+  gsap.from('.service-why__card', {
     y: 80, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.12,
-    scrollTrigger: { trigger: '.fa-why__right', start: 'top 78%', toggleActions: 'play none none reverse' }
+    scrollTrigger: { trigger: '.service-why__right__cards', start: 'top 78%', toggleActions: 'play none none reverse' }
   });
 
   // Scroll-triggered reveals for why section

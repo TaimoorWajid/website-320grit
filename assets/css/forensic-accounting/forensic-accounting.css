@@ -173,12 +173,12 @@ SECTION 02: WHY FORENSIC ACCOUNTING
   align-self: start;
 }
 .fa-why__left .section-headline { margin-bottom: 20px; }
-.fa-why__right {
+.service-why__right__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
-.fa-why__card {
+.service-why__card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
@@ -187,11 +187,11 @@ SECTION 02: WHY FORENSIC ACCOUNTING
   transform-style: preserve-3d;
   will-change: transform;
 }
-.fa-why__card:hover {
+.service-why__card:hover {
   border-color: rgba(121, 44, 213, 0.3);
 }
 
-.fa-why__card__icon {
+.service-why__card__icon {
   width: 48px;
   height: 48px;
   display: flex;
@@ -204,7 +204,7 @@ SECTION 02: WHY FORENSIC ACCOUNTING
   transition: all 0.35s ease;
 }
 
-.fa-why__card:hover .fa-why__card__icon {    
+.service-why__card:hover .service-why__card__icon {    
   border-color: rgba(121, 44, 213, 0.3);
   background: var(--ew-primary);
   color: #fff;
@@ -223,13 +223,13 @@ SECTION 02: WHY FORENSIC ACCOUNTING
   stroke: var(--border-subtle);
   stroke-width: 1.5;
 }
-.fa-why__card h3 {
+.service-why__card h3 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--text-primary);
 }
-.fa-why__card p {
+.service-why__card p {
   font-size: 15px;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -1046,7 +1046,7 @@ RESPONSIVE (SHARED)
   .fa-process,
   .fa-industries,
   .fa-choose { padding: 80px 24px; }
-  .fa-why__right,
+  .service-why__right__cards,
   .fa-choose__right,
   .fa-services__grid { grid-template-columns: 1fr; }
   .fa-what__inner { grid-template-columns: 1fr; padding: 0 24px; }

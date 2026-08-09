@@ -1,16 +1,16 @@
-<section class="why-bid-build" id="why-bid-build" data-section="why-bid-build">
-  <div class="why-bid-build__container">
+<section class="service-why" id="service-why" data-section="service-why">
+  <div class="service-why__container">
 
     <!-- Left Content -->
-    <div class="why-bid-build__content">
-      <div class="why-bid-build__eyebrow">03 — THE ADVANTAGE</div>
+    <div class="service-why__content">
+      <div class="service-why__eyebrow">03 — THE ADVANTAGE</div>
       
-      <h2 class="why-bid-build__title">
+      <h2 class="service-why__title">
         WHY<br>
         <span>BID-BUILD?</span>
       </h2>
 
-      <p class="why-bid-build__desc">
+      <p class="service-why__desc">
         Owners choose Bid-Build for its simplicity, transparency, and ability to deliver high-quality projects with minimized risk and clear accountability.
       </p>
     </div>

@@ -2,7 +2,7 @@
    WHY BID-BUILD
    ============================================ */
 
-.why-bid-build {
+.service-why {
   position: relative;
   padding: 120px 0;
   background: var(--nectar-extra-color-2);
@@ -10,22 +10,22 @@
   overflow: hidden;
 }
 
-.why-bid-build__container {
+.service-why__container{
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 0.9fr 1.3fr;
+  grid-template-columns: 1.3fr 1.3fr;
   gap: 80px;
   align-items: center;
 }
 
 /* Left Content */
-.why-bid-build__content {
-  max-width: 420px;
+.service-why__content {
+  max-width: 480px;
 }
 
-.why-bid-build__eyebrow {
+.service-why__eyebrow {
   font-size: 12px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.why-bid-build__title {
+.service-why__title {
   font-size: clamp(42px, 5vw, 64px);
   font-weight: 700;
   line-height: 1.05;
@@ -48,11 +48,11 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.why-bid-build__title span {
+.service-why__title span {
   color: var(--nectar-accent-color);
 }
 
-.why-bid-build__desc {
+.service-why__desc {
   font-size: 16.5px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
@@ -172,45 +172,45 @@
 }
 
 /* In-view Animations */
-.why-bid-build.is-inview .why-bid-build__eyebrow,
-.why-bid-build.is-inview .why-bid-build__title,
-.why-bid-build.is-inview .why-bid-build__desc {
+.service-why.is-inview .service-why__eyebrow,
+.service-why.is-inview .service-why__title,
+.service-why.is-inview .service-why__desc {
   opacity: 1;
   transform: translateY(0);
 }
 
-.why-bid-build.is-inview .why-bid-build__eyebrow { transition-delay: 0.1s; }
-.why-bid-build.is-inview .why-bid-build__title   { transition-delay: 0.2s; }
-.why-bid-build.is-inview .why-bid-build__desc    { transition-delay: 0.35s; }
+.service-why.is-inview .service-why__eyebrow { transition-delay: 0.1s; }
+.service-why.is-inview .service-why__title   { transition-delay: 0.2s; }
+.service-why.is-inview .service-why__desc    { transition-delay: 0.35s; }
 
-.why-bid-build.is-inview .why-bid-build__card {
+.service-why.is-inview .why-bid-build__card {
   opacity: 1;
   transform: translateY(0);
 }
 
-.why-bid-build.is-inview .why-bid-build__card:nth-child(1) { transition-delay: 0.45s; }
-.why-bid-build.is-inview .why-bid-build__card:nth-child(2) { transition-delay: 0.55s; }
-.why-bid-build.is-inview .why-bid-build__card:nth-child(3) { transition-delay: 0.65s; }
-.why-bid-build.is-inview .why-bid-build__card:nth-child(4) { transition-delay: 0.75s; }
+.service-why.is-inview .why-bid-build__card:nth-child(1) { transition-delay: 0.45s; }
+.service-why.is-inview .why-bid-build__card:nth-child(2) { transition-delay: 0.55s; }
+.service-why.is-inview .why-bid-build__card:nth-child(3) { transition-delay: 0.65s; }
+.service-why.is-inview .why-bid-build__card:nth-child(4) { transition-delay: 0.75s; }
 
 /* Responsive */
 @media (max-width: 1100px) {
-  .why-bid-build__container {
+  .service-why__container{
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  .why-bid-build__content {
+  .service-why__content {
     max-width: 560px;
   }
 }
 
 @media (max-width: 768px) {
-  .why-bid-build {
+  .service-why {
     padding: 80px 0;
   }
 
-  .why-bid-build__container {
+  .service-why__container{
     padding: 0 20px;
   }
 

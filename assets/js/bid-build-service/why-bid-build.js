@@ -1,5 +1,5 @@
 (function () {
-  const section = document.querySelector('#why-bid-build');
+  const section = document.querySelector('#service-why');
   if (!section) return;
 
   const observer = new IntersectionObserver((entries) => {

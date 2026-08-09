@@ -74,28 +74,28 @@ SECTION 01: HERO
 <!-- ============================================
 SECTION 02: WHY FORENSIC ACCOUNTING 
 ============================================ -->
-<section class="what-bid-build" id="what-bid-build" data-section="what-bid-build">
- <div class="what-bid-build__container">
-    <!-- Left Content -->
-    <div class="what-bid-build__content">
-      <div class="what-bid-build__eyebrow">02 — The Advantage</div>
-      
-      <h2 class="what-bid-build__title">
-        Financial Clarity.<br>
-        Objective Truth.<br>
-        <span>Stronger Outcomes.</span>
-      </h2>
+<section class="service-why" id="service-why" data-section="service-why">
+    <div class="service-why__container">
 
-      <div class="what-bid-build__text">
-        <p>
-          Our forensic accounting services deliver unbiased analysis, uncover financial irregularities, and provide the evidence you need to make informed decisions and win cases.
-        </p>
-      </div>
-    </div>
-    <!-- Right Content -->
-     <div class="fa-why__right">
-            <article class="fa-why__card tilt-card">
-                <div class="fa-why__card__icon">
+        <!-- Left Content -->
+        <div class="service-why__content">
+            <div class="service-why__eyebrow">02 — THE ADVANTAGE</div>
+
+            <h2 class="service-why__title">
+                Financial Clarity.<br>
+                Objective Truth.<br>
+                <span>Stronger <br>
+                    Outcomes.</span>
+            </h2>
+
+            <p class="service-why__desc">
+               Our forensic accounting services deliver unbiased analysis, uncover financial irregularities, and provide the evidence you need to make informed decisions and win cases.
+            </p>
+        </div>
+        <!-- Right Content -->
+        <div class="service-why__right__cards">
+            <article class="service-why__card tilt-card">
+                <div class="service-why__card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.3-4.3" />
@@ -104,8 +104,8 @@ SECTION 02: WHY FORENSIC ACCOUNTING
                 <h3>Detailed Analysis</h3>
                 <p>We examine every detail to uncover the facts.</p>
             </article>
-            <article class="fa-why__card tilt-card">
-                <div class="fa-why__card__icon">
+            <article class="service-why__card tilt-card">
+                <div class="service-why__card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                         <polyline points="14 2 14 8 20 8" />
@@ -116,8 +116,8 @@ SECTION 02: WHY FORENSIC ACCOUNTING
                 <h3>Unbiased & Independent</h3>
                 <p>Our opinions are objective, impartial, and defensible.</p>
             </article>
-            <article class="fa-why__card tilt-card">
-                <div class="fa-why__card__icon">
+            <article class="service-why__card tilt-card">
+                <div class="service-why__card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         <circle cx="12" cy="11" r="2" />
@@ -127,8 +127,8 @@ SECTION 02: WHY FORENSIC ACCOUNTING
                 <h3>Evidence That Holds</h3>
                 <p>Reports built to meet legal standards and stand in court.</p>
             </article>
-            <article class="fa-why__card tilt-card">
-                <div class="fa-why__card__icon">
+            <article class="service-why__card tilt-card">
+                <div class="service-why__card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10" />
                         <circle cx="12" cy="12" r="6" />
@@ -141,7 +141,7 @@ SECTION 02: WHY FORENSIC ACCOUNTING
                 <p>We turn financial insights into stronger case outcomes.</p>
             </article>
         </div>
- </div>
+    </div>
 </section>
 <!-- END SECTION 02: WHY FORENSIC ACCOUNTING -->
 
