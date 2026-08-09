@@ -1,0 +1,121 @@
+/* ============================================
+   320 GRIT — Global Side Navigation
+   Fixed left rail, tracks scroll position
+   ============================================ */
+
+.grit-sidenav {
+  position: fixed;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none; /* Clicks pass through to content */
+}
+
+.grit-sidenav__line {
+  width: 1px;
+  height: 220px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #27272a 15%,
+    #27272a 85%,
+    transparent 100%
+  );
+}
+
+.grit-sidenav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grit-sidenav__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #52525b;
+  letter-spacing: 0.05em;
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+}
+
+.grit-sidenav__item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  width: 12px;
+  height: 1px;
+  background: #FF5D0E;
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grit-sidenav__item.active {
+  color: #ffffff;
+}
+
+.grit-sidenav__item.active .grit-sidenav__num {
+  color: #FF5D0E;
+}
+
+.grit-sidenav__item.active::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+.grit-sidenav__num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-size: 11px;
+}
+
+.grit-sidenav__label {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.grit-sidenav__item.active .grit-sidenav__label,
+.grit-sidenav__item:hover .grit-sidenav__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Click ripple effect */
+.grit-sidenav__item:hover {
+  color: #a1a1aa;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .grit-sidenav {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .grit-sidenav__item,
+  .grit-sidenav__label,
+  .grit-sidenav__item::before {
+    transition: none;
+  }
+}

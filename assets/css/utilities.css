@@ -1,0 +1,126 @@
+/* ============================================
+   320 GRIT — Shared Utilities
+   Use these across ALL sections
+   ============================================ */
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* GSAP/Lenis handles this */
+}
+
+body {
+  font-family: var(--grit-font-base);
+  background: var(--grit-bg-primary);
+  color: var(--grit-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ---- Container ---- */
+.grit-container {
+  width: 100%;
+  max-width: var(--grit-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grit-space-xl);
+  padding-right: var(--grit-space-xl);
+}
+
+@media (max-width: 1024px) {
+  .grit-container {
+    padding-left: var(--grit-space-md);
+    padding-right: var(--grit-space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .grit-container {
+    padding-left: var(--grit-space-sm);
+    padding-right: var(--grit-space-sm);
+  }
+}
+
+/* ---- Text Utilities ---- */
+.grit-text-orange {
+  color: var(--grit-accent-orange);
+}
+
+.grit-text-secondary {
+  color: var(--grit-text-secondary);
+}
+
+.grit-text-muted {
+  color: var(--grit-text-muted);
+}
+
+.grit-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--grit-accent-orange);
+}
+
+/* ---- Screen Reader ---- */
+.grit-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Magnetic Button Base ---- */
+.grit-magnetic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 0.3s var(--grit-ease-expo-out);
+}
+
+/* ---- Custom Cursor Hide on Touch ---- */
+@media (pointer: coarse) {
+  .grit-cursor {
+    display: none !important;
+  }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

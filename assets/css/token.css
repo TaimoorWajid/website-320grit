@@ -1,0 +1,58 @@
+/* ============================================
+   320 GRIT — Design Tokens
+   Shared across ALL sections
+   ============================================ */
+
+:root {
+  /* ---- Brand Colors ---- */
+  --grit-bg-primary:     #070707;
+  --grit-bg-secondary:   #0a0a0a;
+  --grit-bg-tertiary:    #111111;
+  --grit-accent-orange:  #FF5D0E;
+  --grit-accent-orange:  #FF5D0E;
+  --grit-accent-orange-deep: #E5500C;
+  --grit-accent-orange-glow: rgba(255, 93, 14, 0.35);
+
+  --grit-text-primary:   #ffffff;
+  --grit-text-secondary: #a1a1aa;
+  --grit-text-muted:     #52525b;
+  --grit-border-subtle:  #27272a;
+  --grit-border-hover:   rgba(255, 93, 14, 0.25);
+
+  /* ---- Typography ---- */
+  --grit-font-base:      'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --grit-font-display:   'Inter', system-ui, sans-serif;
+
+  /* ---- Easings ---- */
+  --grit-ease-expo-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --grit-ease-expo-in-out:  cubic-bezier(0.87, 0, 0.13, 1);
+  --grit-ease-elastic:      cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --grit-ease-smooth:       cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Durations ---- */
+  --grit-duration-fast:   200ms;
+  --grit-duration-normal: 600ms;
+  --grit-duration-slow:   1200ms;
+
+  /* ---- Spacing Scale ---- */
+  --grit-space-xs:  8px;
+  --grit-space-sm:  16px;
+  --grit-space-md:  24px;
+  --grit-space-lg:  40px;
+  --grit-space-xl:  64px;
+  --grit-space-2xl: 100px;
+  --grit-space-3xl: 160px;
+
+  /* ---- Layout ---- */
+  --grit-container-max: 1400px;
+  --grit-nav-height:    80px;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --grit-duration-fast:   0.01ms;
+    --grit-duration-normal: 0.01ms;
+    --grit-duration-slow:   0.01ms;
+  }
+}

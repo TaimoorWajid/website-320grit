@@ -1,13 +1,15 @@
 /* ============================================
    320 GRIT — Commercial Construction Page
-   Complete JavaScript
+   Segregated JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ============================================
+// ======================================================
+// SHARED / GLOBAL UTILITIES 
+// ======================================================
+
   // 1. LENIS SMOOTH SCROLL
-  // ============================================
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -27,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   gsap.ticker.lagSmoothing(0);
 
-  // ============================================
   // 2. CUSTOM CURSOR
-  // ============================================
   const cursor = document.getElementById('cursor');
   const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
@@ -57,51 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============================================
-  // 3. MOBILE NAV
-  // ============================================
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (navToggle && mobileMenu) {
-    navToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      const spans = navToggle.querySelectorAll('span');
-      if (mobileMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      }
+  // 3. MAGNETIC BUTTONS
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        navToggle.querySelectorAll('span').forEach(s => { s.style.transform = 'none'; s.style.opacity = '1'; });
-      });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
     });
-  }
+  });
 
-  // ============================================
-  // 4. NAVBAR SCROLL EFFECT
-  // ============================================
-  const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 100) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
+// ======================================================
+// SECTION 01: HERO
+// ======================================================
 
-  // ============================================
-  // 5. HERO CHARACTER SPLIT
-  // ============================================
+  // Hero Character Split
   const headline = document.getElementById('heroHeadline');
   if (headline) {
     const text = headline.textContent;
@@ -109,15 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
     text.split('').forEach((char, i) => {
       const span = document.createElement('span');
       span.className = 'char';
-      span.textContent = char === ' ' ? '\\u00A0' : char;
+      span.textContent = char === ' ' ? '\u00A0' : char;
       span.style.animationDelay = (1.6 + i * 0.025) + 's';
       headline.appendChild(span);
     });
   }
 
-  // ============================================
-  // 6. HERO ENTRANCE ANIMATIONS
-  // ============================================
+  // Hero Entrance Animations
   gsap.to('.hero-eyebrow', {
     opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 1.4
   });
@@ -134,9 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     opacity: 1, duration: 0.8, ease: 'expo.out', delay: 3.0
   });
 
-  // ============================================
-  // 7. HERO SCROLL PARALLAX (PIN + FADE)
-  // ============================================
+  // Hero Scroll Parallax (Pin + Fade)
   const heroSection = document.querySelector('.hero-section');
   const heroCanvas = document.querySelector('.hero-canvas');
   const heroContent = document.querySelector('.hero-content');
@@ -157,9 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroTl.to(scrollInd, { opacity: 0, ease: 'none' }, 0);
   }
 
-  // ============================================
-  // 8. WEBGL HERO DISPLACEMENT SHADER
-  // ============================================
+  // WebGL Hero Displacement Shader
   const heroCanvasContainer = document.getElementById('heroCanvas');
   const fallbackImg = document.querySelector('.hero-fallback-img');
 
@@ -272,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
           renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Hide fallback image
         if (fallbackImg) fallbackImg.style.display = 'none';
       });
     } catch (e) {
@@ -283,34 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (fallbackImg) fallbackImg.classList.add('visible');
   }
 
-  // ============================================
-  // 9. MAGNETIC BUTTONS
-  // ============================================
-  document.querySelectorAll('.magnetic').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translate(0, 0)';
-    });
-  });
+// ======================================================
+// SECTION 02: WHY 320 GRIT (DIFFERENCE)
+// ======================================================
 
-  // ============================================
-  // 10. SCROLL-TRIGGERED REVEALS
-  // ============================================
-  gsap.utils.toArray('.difference-section, .process-section, .stats-section, .testimonial-section, .faq-section').forEach(section => {
-    gsap.from(section.querySelectorAll('.section-eyebrow, .section-headline, .section-body'), {
-      y: 50, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.1,
-      scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none reverse' }
-    });
-  });
-
-  // ============================================
-  // 11. 3D CARD TILT
-  // ============================================
+  // 3D Card Tilt
   document.querySelectorAll('.tilt-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -325,17 +268,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ============================================
-  // 12. CAPABILITY CARDS STAGGER
-  // ============================================
+  // Capability Cards Stagger
   gsap.from('.capability-card', {
     y: 80, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.12,
     scrollTrigger: { trigger: '.difference-cards', start: 'top 78%', toggleActions: 'play none none reverse' }
   });
 
-  // ============================================
-  // 13. HORIZONTAL SCROLL
-  // ============================================
+  // Scroll-triggered reveals for difference section
+  gsap.from('.difference-section .section-eyebrow, .difference-section .section-headline, .difference-section .section-body', {
+    y: 50, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.difference-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+  });
+
+// ======================================================
+// SECTION 03: OUR WORK (SPECTRUM)
+// ======================================================
+
+  // Horizontal Scroll
   const hWrapper = document.querySelector('.horizontal-scroll-wrapper');
   const hContainer = document.getElementById('horizontalContainer');
   const hProgress = document.getElementById('scrollProgress');
@@ -379,9 +328,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============================================
-  // 14. PROCESS TIMELINE
-  // ============================================
+  // Spectrum Header Reveal
+  gsap.from('.spectrum-header > *', {
+    y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.spectrum-header', start: 'top 85%', toggleActions: 'play none none reverse' }
+  });
+
+// ======================================================
+// SECTION 04: HOW WE WORK (PROCESS)
+// ======================================================
+
+  // Process Timeline
   const timelineProgress = document.getElementById('timelineProgress');
   const processSteps = document.querySelectorAll('.process-step');
 
@@ -413,9 +370,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ============================================
-  // 15. COUNT-UP ANIMATION
-  // ============================================
+  // Scroll-triggered reveals
+  gsap.from('.process-section .section-eyebrow, .process-section .section-headline', {
+    y: 50, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.process-section', start: 'top 80%', toggleActions: 'play none none reverse' }
+  });
+
+// ======================================================
+// SECTION 05: PROJECT STATS
+// ======================================================
+
+  // Count-Up Animation
   function countUp(el) {
     const target = parseFloat(el.dataset.target);
     const prefix = el.dataset.prefix || '';
@@ -451,100 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
     countObserver.observe(grid);
   });
 
-  // ============================================
-  // 16. CASE STUDY PARALLAX
-  // ============================================
-  const caseImg = document.querySelector('.case-study-image img');
-  if (caseImg) {
-    gsap.fromTo(caseImg, { y: '-10%' }, {
-      y: '10%', ease: 'none',
-      scrollTrigger: {
-        trigger: '.case-study-section',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      }
-    });
-  }
-
-  gsap.from('.case-study-content > *', {
-    y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
-    scrollTrigger: { trigger: '.case-study-content', start: 'top 75%', toggleActions: 'play none none reverse' }
-  });
-
-  // ============================================
-  // 17. TESTIMONIAL 3D PERSPECTIVE
-  // ============================================
-  const testimonialCard = document.getElementById('testimonialCard');
-  if (testimonialCard && !isTouchDevice) {
-    testimonialCard.addEventListener('mousemove', (e) => {
-      const rect = testimonialCard.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      testimonialCard.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
-    });
-    testimonialCard.addEventListener('mouseleave', () => {
-      testimonialCard.style.transform = 'rotateY(0) rotateX(0)';
-    });
-  }
-
-  gsap.from('.testimonial-card', {
-    y: 60, opacity: 0, duration: 1.2, ease: 'expo.out',
-    scrollTrigger: { trigger: '.testimonial-section', start: 'top 75%', toggleActions: 'play none none reverse' }
-  });
-
-  // ============================================
-  // 18. CTA PARTICLES
-  // ============================================
-  const particlesContainer = document.getElementById('particles');
-  if (particlesContainer) {
-    for (let i = 0; i < 30; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const size = Math.random() * 3 + 1;
-      p.style.width = size + 'px';
-      p.style.height = size + 'px';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.animationDuration = (Math.random() * 10 + 10) + 's';
-      p.style.animationDelay = (Math.random() * 10) + 's';
-      p.style.opacity = Math.random() * 0.5 + 0.2;
-      particlesContainer.appendChild(p);
-    }
-  }
-
-  gsap.from('.cta-headline', {
-    y: 50, opacity: 0, duration: 1, ease: 'expo.out',
-    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
-  });
-  gsap.from('.cta-subheadline', {
-    y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', delay: 0.2,
-    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
-  });
-  gsap.from('.btn-cta', {
-    y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', delay: 0.4,
-    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
-  });
-
-  // ============================================
-  // 19. FAQ ACCORDION
-  // ============================================
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
-    });
-  });
-
-  gsap.from('.faq-item', {
-    y: 30, opacity: 0, duration: 0.7, ease: 'expo.out', stagger: 0.08,
-    scrollTrigger: { trigger: '.faq-accordion', start: 'top 80%', toggleActions: 'play none none reverse' }
-  });
-
-  // ============================================
-  // 20. STATS BACKGROUND WIREFRAME CUBES
-  // ============================================
+  // Stats Background Wireframe Cubes
   const statsCanvasEl = document.getElementById('statsCanvas');
   if (statsCanvasEl && !isTouchDevice && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     try {
@@ -601,12 +473,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ============================================
-  // 21. SPECTRUM HEADER REVEAL
-  // ============================================
-  gsap.from('.spectrum-header > *', {
+// ======================================================
+// SECTION 06: CASE STUDY / FEATURED PROJECT
+// ======================================================
+
+  // Case Study Parallax
+  const caseImg = document.querySelector('.case-study-image img');
+  if (caseImg) {
+    gsap.fromTo(caseImg, { y: '-10%' }, {
+      y: '10%', ease: 'none',
+      scrollTrigger: {
+        trigger: '.case-study-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1
+      }
+    });
+  }
+
+  gsap.from('.case-study-content > *', {
     y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
-    scrollTrigger: { trigger: '.spectrum-header', start: 'top 85%', toggleActions: 'play none none reverse' }
+    scrollTrigger: { trigger: '.case-study-content', start: 'top 75%', toggleActions: 'play none none reverse' }
   });
 
-}); // End DOMContentLoaded
+// ======================================================
+// SECTION 07: REVIEWS / TESTIMONIAL
+// ======================================================
+
+  // Testimonial 3D Perspective
+  const testimonialCard = document.getElementById('testimonialCard');
+  if (testimonialCard && !isTouchDevice) {
+    testimonialCard.addEventListener('mousemove', (e) => {
+      const rect = testimonialCard.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      testimonialCard.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+    });
+    testimonialCard.addEventListener('mouseleave', () => {
+      testimonialCard.style.transform = 'rotateY(0) rotateX(0)';
+    });
+  }
+
+  gsap.from('.testimonial-card', {
+    y: 60, opacity: 0, duration: 1.2, ease: 'expo.out',
+    scrollTrigger: { trigger: '.testimonial-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+  });
+
+// ======================================================
+// SECTION 08: CTA
+// ======================================================
+
+  // CTA Particles
+  const particlesContainer = document.getElementById('particles');
+  if (particlesContainer) {
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 3 + 1;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      p.style.opacity = Math.random() * 0.5 + 0.2;
+      particlesContainer.appendChild(p);
+    }
+  }
+
+  gsap.from('.cta-headline', {
+    y: 50, opacity: 0, duration: 1, ease: 'expo.out',
+    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
+  });
+  gsap.from('.cta-subheadline', {
+    y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', delay: 0.2,
+    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
+  });
+  gsap.from('.btn-cta', {
+    y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', delay: 0.4,
+    scrollTrigger: { trigger: '.cta-section', start: 'top 70%', toggleActions: 'play none none reverse' }
+  });
+
+// ======================================================
+// SECTION 09: FAQ
+// ======================================================
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
+
+  gsap.from('.faq-item', {
+    y: 30, opacity: 0, duration: 0.7, ease: 'expo.out', stagger: 0.08,
+    scrollTrigger: { trigger: '.faq-accordion', start: 'top 80%', toggleActions: 'play none none reverse' }
+  });
+
+}); 

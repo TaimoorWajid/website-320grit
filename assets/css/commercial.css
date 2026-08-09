@@ -1,9 +1,12 @@
 /* ============================================
    320 GRIT — Commercial Construction Page
-   Complete Stylesheet
+   Segregated CSS
    ============================================ */
 
-/* ---- CSS Variables ---- */
+/* ======================================================
+SHARED / BASE / VARIABLES
+====================================================== */
+
 :root {
   --bg-primary: #050505;
   --bg-secondary: #0a0a0a;
@@ -27,7 +30,6 @@
   --duration-slow: 1200ms;
 }
 
-/* ---- Reset & Base ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: auto; }
 body {
@@ -42,120 +44,7 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
-/* ---- Custom Cursor ---- */
-.custom-cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  mix-blend-mode: difference;
-  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
-  transform: translate(-50%, -50%);
-}
-.custom-cursor.expanded {
-  width: 40px; height: 40px;
-  background: transparent;
-  border: 1px solid #fff;
-}
-@media (pointer: coarse), (max-width: 768px) {
-  .custom-cursor { display: none; }
-}
-
-/* ---- Navigation ---- */
-.site-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 60px;
-  transition: background 0.4s ease, backdrop-filter 0.4s ease;
-}
-.site-nav.scrolled {
-  background: rgba(5, 5, 5, 0.85);
-  backdrop-filter: blur(20px);
-}
-.nav-brand {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-.nav-links {
-  display: flex;
-  gap: 36px;
-}
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 100%; height: 1px;
-  background: var(--text-primary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease-expo-out);
-}
-.nav-links a:hover { color: var(--text-primary); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-cta {
-  padding: 10px 22px;
-  background: var(--accent-purple);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-.nav-cta:hover {
-  background: var(--accent-purple-glow);
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text-primary);
-  transition: all 0.3s ease;
-}
-.mobile-menu {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--bg-primary);
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-.mobile-menu.active { opacity: 1; pointer-events: all; }
-.mobile-menu a {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-/* ---- Shared Typography ---- */
+/* Shared Typography */
 .section-eyebrow {
   font-size: 13px;
   font-weight: 600;
@@ -177,7 +66,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   max-width: 480px;
 }
 
-/* ---- Buttons ---- */
+/* Buttons */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -234,9 +123,32 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   transform: scale(1.05);
 }
 
-/* ============================================ */
-/* SECTION 01: HERO */
-/* ============================================ */
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+.custom-cursor.expanded {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid #fff;
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .custom-cursor { display: none; }
+}
+
+/* ======================================================
+SECTION 01: HERO
+====================================================== */
+
 .hero-section {
   position: relative;
   width: 100%;
@@ -349,9 +261,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   60% { transform: translateY(5px); }
 }
 
-/* ============================================ */
-/* SECTION 02: DIFFERENCE */
-/* ============================================ */
+/* ======================================================
+SECTION 02: WHY 320 GRIT (DIFFERENCE)
+====================================================== */
+
 .difference-section {
   padding: 160px 80px;
   background: var(--bg-primary);
@@ -411,9 +324,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--text-secondary);
 }
 
-/* ============================================ */
-/* SECTION 03: SPECTRUM */
-/* ============================================ */
+/* ======================================================
+SECTION 03: OUR WORK (SPECTRUM)
+====================================================== */
+
 .spectrum-section {
   padding: 100px 0 0;
   background: var(--bg-primary);
@@ -512,9 +426,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   transform: scaleX(0);
 }
 
-/* ============================================ */
-/* SECTION 04: PROCESS */
-/* ============================================ */
+/* ======================================================
+SECTION 04: HOW WE WORK (PROCESS)
+====================================================== */
+
 .process-section {
   padding: 160px 80px;
   background: var(--bg-primary);
@@ -583,9 +498,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--text-secondary);
 }
 
-/* ============================================ */
-/* SECTION 05: STATS */
-/* ============================================ */
+/* ======================================================
+SECTION 05: PROJECT STATS
+====================================================== */
+
 .stats-section {
   position: relative;
   padding: 140px 80px;
@@ -629,9 +545,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   letter-spacing: 0.02em;
 }
 
-/* ============================================ */
-/* SECTION 06: CASE STUDY */
-/* ============================================ */
+/* ======================================================
+SECTION 06: CASE STUDY / FEATURED PROJECT
+====================================================== */
+
 .case-study-section {
   background: var(--bg-primary);
 }
@@ -686,9 +603,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--text-primary);
 }
 
-/* ============================================ */
-/* SECTION 07: TESTIMONIAL */
-/* ============================================ */
+/* ======================================================
+SECTION 07: REVIEWS / TESTIMONIAL
+====================================================== */
+
 .testimonial-section {
   padding: 160px 80px;
   background: var(--bg-primary);
@@ -740,9 +658,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--text-secondary);
 }
 
-/* ============================================ */
-/* SECTION 08: CTA */
-/* ============================================ */
+/* ======================================================
+SECTION 08: CTA
+====================================================== */
+
 .cta-section {
   position: relative;
   min-height: 80vh;
@@ -813,9 +732,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   margin-bottom: 40px;
 }
 
-/* ============================================ */
-/* SECTION 09: FAQ */
-/* ============================================ */
+/* ======================================================
+ SECTION 09: FAQ 
+====================================================== */
+
 .faq-section {
   padding: 140px 80px;
   background: var(--bg-primary);
@@ -898,77 +818,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--text-secondary);
 }
 
-/* ============================================ */
-/* SECTION 10: FOOTER */
-/* ============================================ */
-.site-footer {
-  background: var(--accent-orange);
-  color: var(--bg-primary);
-  padding: 80px 80px 40px;
-}
-.footer-main {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  max-width: 1200px;
-  margin: 0 auto 60px;
-}
-.footer-brand h3 {
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 8px;
-}
-.footer-brand p {
-  font-size: 15px;
-  opacity: 0.8;
-}
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-.footer-col h4 {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 20px;
-  opacity: 0.7;
-}
-.footer-col a,
-.footer-col p {
-  display: block;
-  font-size: 15px;
-  margin-bottom: 10px;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-.footer-col a:hover { opacity: 1; }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 30px;
-  border-top: 1px solid rgba(0,0,0,0.15);
-  max-width: 1200px;
-  margin: 0 auto;
-  font-size: 13px;
-  opacity: 0.7;
-}
-.footer-legal {
-  display: flex;
-  gap: 24px;
-}
-.footer-legal a:hover { opacity: 1; }
+/* ======================================================
+RESPONSIVE (SHARED)
+====================================================== */
 
-/* ============================================ */
-/* RESPONSIVE */
-/* ============================================ */
 @media (max-width: 1024px) {
-  .site-nav { padding: 16px 32px; }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .nav-toggle { display: flex; }
   .hero-section { padding: 0 32px 80px; }
   .difference-section,
   .process-section,
@@ -987,8 +841,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .case-study-image img { position: relative; height: 100%; top: 0; }
   .case-study-content { padding: 48px 32px; }
   .faq-layout { grid-template-columns: 1fr; gap: 40px; }
-  .footer-main { grid-template-columns: 1fr; gap: 48px; }
-  .site-footer { padding: 60px 32px 32px; }
 }
 
 @media (max-width: 768px) {
@@ -998,13 +850,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .card-content { left: 24px; bottom: 40px; }
   .stats-grid { grid-template-columns: 1fr; gap: 32px; }
   .case-stats-row { flex-wrap: wrap; gap: 16px; }
-  .footer-links { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
 
-/* ============================================ */
-/* REDUCED MOTION */
-/* ============================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -87,6 +87,76 @@ function grit_enqueue_assets()
         grit_asset_version('/assets/css/project-inquiry-form.css')
     );
 
+    wp_enqueue_style(
+        'grit-hero',
+        get_stylesheet_directory_uri() . '/assets/css/bid-build-service/hero.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/bid-build-service/hero.css')
+    );
+
+    wp_enqueue_style(
+        'grit-why-bid-build',
+        get_stylesheet_directory_uri() . '/assets/css/bid-build-service/why-bid-build.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/bid-build-service/why-bid-build.css')
+    );
+
+    wp_enqueue_style(
+        'grit-what-is-bid-build',
+        get_stylesheet_directory_uri() . '/assets/css/bid-build-service/what-is-bid-build.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/bid-build-service/what-is-bid-build.css')
+    );
+
+    wp_enqueue_style(
+        'grit-expert-witness',
+        get_stylesheet_directory_uri() . '/assets/css/expert-witness/expert-witness.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/expert-witness/expert-witness.css')
+    );
+
+    wp_enqueue_style(
+        'grit-forensic-accounting',
+        get_stylesheet_directory_uri() . '/assets/css/forensic-accounting/forensic-accounting.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/forensic-accounting/forensic-accounting.css')
+    );
+
+    wp_enqueue_style(
+        'grit-design-build',
+        get_stylesheet_directory_uri() . '/assets/css/design-build/design-build.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/design-build/design-build.css')
+    );
+
+    wp_enqueue_style(
+        'grit-token',
+        get_stylesheet_directory_uri() . '/assets/css/token.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/token.css')
+    );
+
+     wp_enqueue_style(
+        'grit-animation',
+        get_stylesheet_directory_uri() . '/assets/css/animation.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/animation.css')
+    );
+
+     wp_enqueue_style(
+        'grit-utilities',
+        get_stylesheet_directory_uri() . '/assets/css/utilities.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/utilities.css')
+    );
+
+    wp_enqueue_style(
+        'grit-sidenav',
+        get_stylesheet_directory_uri() . '/assets/css/sidenav.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/sidenav.css')
+    );
+
     // JS
 
     wp_enqueue_script(
@@ -120,6 +190,71 @@ function grit_enqueue_assets()
         grit_asset_version('/assets/js/project-inquiry-form.js'),
         true
     );
+
+    wp_enqueue_script(
+        'grit-hero',
+        get_stylesheet_directory_uri() . '/assets/js/bid-build-service/hero.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/bid-build-service/hero.js'),
+        true
+    );
+
+
+    wp_enqueue_script(
+        'grit-why-bid-build',
+        get_stylesheet_directory_uri() . '/assets/js/bid-build-service/why-bid-build.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/bid-build-service/why-bid-build.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-what-is-bid-build',
+        get_stylesheet_directory_uri() . '/assets/js/bid-build-service/what-is-bid-build.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/bid-build-service/what-is-bid-build.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-expert-witness',
+        get_stylesheet_directory_uri() . '/assets/js/expert-witness/expert-witness.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/expert-witness/expert-witness.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-forensic-accounting',
+        get_stylesheet_directory_uri() . '/assets/js/forensic-accounting/forensic-accounting.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/forensic-accounting/forensic-accounting.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-design-build',
+        get_stylesheet_directory_uri() . '/assets/js/design-build/design-build.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/design-build/design-build.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-helper',
+        get_stylesheet_directory_uri() . '/assets/js/helper.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/helper.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-sidenav',
+        get_stylesheet_directory_uri() . '/assets/js/sidenav.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/sidenav.js'),
+        true
+    );
 }
 
 add_action('wp_enqueue_scripts', 'grit_enqueue_assets');
@@ -131,10 +266,6 @@ function grit_commercial_render($atts) {
     static $loaded = false;
     if (!$loaded) {
         $theme_url = get_stylesheet_directory_uri();
-        wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), '3.12.5', true);
-        wp_enqueue_script('gsap-st', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
-        wp_enqueue_script('three-js', 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', array(), 'r128', true);
-        wp_enqueue_script('lenis', 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js', array(), '1.1.13', true);
         wp_enqueue_style('grit-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap', array(), null);
         wp_enqueue_style('grit-commercial-css', $theme_url . '/assets/css/commercial.css', array('grit-fonts'), '1.0.0');
         wp_enqueue_script('grit-commercial-js', $theme_url . '/assets/js/commercial.js', array('gsap', 'gsap-st', 'three-js', 'lenis'), '1.0.0', true);
@@ -146,3 +277,130 @@ function grit_commercial_render($atts) {
     include(get_stylesheet_directory() . '/template-parts/components/commercial.php');
     return ob_get_clean();
 }
+
+function grit_hero_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/bid-build-service/hero');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_hero', 'grit_hero_shortcode');
+
+function grit_why_bid_build_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/bid-build-service/why-bid-build');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_why_bid_build', 'grit_why_bid_build_shortcode');
+
+function grit_what_is_bid_build_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/bid-build-service/what-is-bid-build');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_what_is_bid_build', 'grit_what_is_bid_build_shortcode');
+
+function grit_expert_witness_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/expert-witness/expert-witness');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_expert_witness', 'grit_expert_witness_shortcode');
+
+function grit_forensic_accounting_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/forensic-accounting/forensic-accounting');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_forensic_accounting', 'grit_forensic_accounting_shortcode');
+
+function grit_design_build_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/design-build/design-build');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_design_build', 'grit_design_build_shortcode');
+
+
+/**
+ * Global Side Navigation — Bid-Build Service Page
+ * Injects fixed left rail before </body>
+ */
+function grit_global_sidenav() {
+    // Only show on the Bid-Build page
+    // Change this condition to match your page slug, ID, or template
+    //  && !is_page_template('page-bid-build.php') // removed
+    if (!is_page('bid-build')) {
+        return;
+    }
+    ?>
+    
+    <nav class="grit-sidenav" id="gritSidenav" aria-label="Page sections">
+        <div class="grit-sidenav__line"></div>
+        <ul class="grit-sidenav__list">
+            <li class="grit-sidenav__item active" data-section="hero-bid-build">
+                <span class="grit-sidenav__num">01</span>
+                <span class="grit-sidenav__label">Service Section</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="what-bid-build">
+                <span class="grit-sidenav__num">02</span>
+                <span class="grit-sidenav__label">What is Bid-Build?</span>
+            </li>
+            
+            <li class="grit-sidenav__item" data-section="why-bid-build">
+                <span class="grit-sidenav__num">03</span>
+                <span class="grit-sidenav__label">Why Bid-Build?</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="execution">
+                <span class="grit-sidenav__num">04</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="collaboration">
+                <span class="grit-sidenav__num">05</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="gallery">
+                <span class="grit-sidenav__num">06</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="benefits">
+                <span class="grit-sidenav__num">07</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="cta">
+                <span class="grit-sidenav__num">08</span>
+            </li>
+        </ul>
+    </nav>
+    
+    <?php
+}
+add_action('wp_footer', 'grit_global_sidenav', 5);
+
+/**
+ * Enqueue Side Nav CSS & JS globally on Bid-Build page
+ */
+function grit_sidenav_assets() {
+    if (!is_page('bid-build') && !is_page_template('page-bid-build.php')) {
+        return;
+    }
+    
+    wp_enqueue_style('grit-sidenav', get_stylesheet_directory_uri() . '/assets/css/sidenav.css', [], '1.0');
+    wp_enqueue_script('grit-sidenav', get_stylesheet_directory_uri() . '/assets/js/sidenav.js', [], '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'grit_sidenav_assets');
+
+function grit_global_libraries() {
+    wp_enqueue_script('three-js', 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', [], 'r128', true);
+    wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', [], '3.12.5', true);
+    wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', ['gsap'], '3.12.5', true);
+    wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js', [], '1.1.18', true);
+}
+add_action('wp_enqueue_scripts', 'grit_global_libraries', 5);

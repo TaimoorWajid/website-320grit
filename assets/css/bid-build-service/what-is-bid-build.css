@@ -1,0 +1,226 @@
+/* ============================================
+   WHAT IS BID-BUILD - Complete Refined CSS
+   ============================================ */
+
+.what-bid-build {
+  position: relative;
+  padding: 120px 0;
+  background: var(--nectar-extra-color-2);
+  color: var(--nectar-extra-color-3);
+  overflow: hidden;
+}
+
+.what-bid-build__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ---------- LEFT CONTENT ---------- */
+.what-bid-build__content {
+  position: relative;
+  z-index: 5;
+  max-width: 480px;
+}
+
+.what-bid-build__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nectar-accent-color);
+  margin-bottom: 20px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-bid-build__title {
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-bid-build__title span {
+  color: var(--nectar-accent-color);
+}
+
+.what-bid-build__text p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 18px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-bid-build__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- RIGHT VISUAL (3D BUILDING) ---------- */
+.what-bid-build__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+}
+
+.what-bid-build__building-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  transform-style: preserve-3d;
+}
+
+.what-bid-build__building {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.08s linear;
+}
+
+.what-bid-build__building-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.65));
+}
+
+/* ---------- LABELS ---------- */
+.what-bid-build__labels {
+  position: absolute;
+  top: 0;
+  right: -22%;
+  bottom: 0;
+  width: 260px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.what-bid-build__label {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-bid-build__label-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--nectar-accent-color);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.what-bid-build__label-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.what-bid-build__label-content strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.what-bid-build__label-content span {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.35;
+}
+
+/* Exact vertical positions for the current image */
+.what-bid-build__label:nth-child(1) { top: 10%; }   /* STRUCTURE */
+.what-bid-build__label:nth-child(2) { top: 26%; }   /* BUILDING ENVELOPE */
+.what-bid-build__label:nth-child(3) { top: 42%; }   /* MECHANICAL / ELECTRICAL */
+.what-bid-build__label:nth-child(4) { top: 58%; }   /* INTERIOR SYSTEMS */
+.what-bid-build__label:nth-child(5) { top: 76%; }   /* FOUNDATION */
+
+/* ---------- IN-VIEW ANIMATIONS ---------- */
+.what-bid-build.is-inview .what-bid-build__eyebrow,
+.what-bid-build.is-inview .what-bid-build__title,
+.what-bid-build.is-inview .what-bid-build__text p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.what-bid-build.is-inview .what-bid-build__eyebrow { transition-delay: 0.1s; }
+.what-bid-build.is-inview .what-bid-build__title   { transition-delay: 0.2s; }
+.what-bid-build.is-inview .what-bid-build__text p:nth-child(1) { transition-delay: 0.35s; }
+.what-bid-build.is-inview .what-bid-build__text p:nth-child(2) { transition-delay: 0.45s; }
+
+.what-bid-build.is-inview .what-bid-build__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.what-bid-build.is-inview .what-bid-build__label:nth-child(1) { transition-delay: 0.5s; }
+.what-bid-build.is-inview .what-bid-build__label:nth-child(2) { transition-delay: 0.6s; }
+.what-bid-build.is-inview .what-bid-build__label:nth-child(3) { transition-delay: 0.7s; }
+.what-bid-build.is-inview .what-bid-build__label:nth-child(4) { transition-delay: 0.8s; }
+.what-bid-build.is-inview .what-bid-build__label:nth-child(5) { transition-delay: 0.9s; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .what-bid-build__labels {
+    right: -20px;
+    width: 240px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .what-bid-build__container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .what-bid-build__content {
+    max-width: 600px;
+  }
+
+  .what-bid-build__labels {
+    right: 0;
+    width: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .what-bid-build {
+    padding: 80px 0;
+  }
+
+  .what-bid-build__container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+
+  .what-bid-build__title {
+    font-size: 38px;
+  }
+
+  /* Hide floating labels on mobile for cleanliness */
+  .what-bid-build__labels {
+    display: none;
+  }
+}
