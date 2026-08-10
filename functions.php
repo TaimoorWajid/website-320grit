@@ -144,6 +144,41 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_style(
+        'grit-advanced-technology',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/advanced-technology.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/advanced-technology.css')
+    );
+
+    wp_enqueue_style(
+        'grit-behavioral-health',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/behavioral-health.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/behavioral-health.css')
+    );
+
+    wp_enqueue_style(
+        'grit-education',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/education.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/education.css')
+    );
+
+    wp_enqueue_style(
+        'grit-hospitality',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/hospitality.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/hospitality.css')
+    );
+
+    wp_enqueue_style(
+        'grit-tenant-improvement',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/tenant-improvement.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/tenant-improvement.css')
+    );
+
+    wp_enqueue_style(
         'grit-token',
         get_stylesheet_directory_uri() . '/assets/css/token.css',
         array('grit-global'),
@@ -271,6 +306,46 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_script(
+        'grit-advanced-technology',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/advanced-technology.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/advanced-technology.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-behavioral-health',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/behavioral-health.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/behavioral-health.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-education',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/education.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/education.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-hospitality',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/hospitality.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/hospitality.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-tenant-improvement',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/tenant-improvement.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/tenant-improvement.js'),
+        true
+    );
+
+    wp_enqueue_script(
         'grit-helper',
         get_stylesheet_directory_uri() . '/assets/js/helper.js',
         array('jquery'),
@@ -362,6 +437,51 @@ function grit_railroads_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('grit_railroads', 'grit_railroads_shortcode');
+
+function grit_advanced_technology_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/advanced-technology');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_advanced_technology', 'grit_advanced_technology_shortcode');
+
+function grit_behavioral_health_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/behavioral-health');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_behavioral_health', 'grit_behavioral_health_shortcode');
+
+function grit_education_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/education');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_education', 'grit_education_shortcode');
+
+function grit_hospitality_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/hospitality');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_hospitality', 'grit_hospitality_shortcode');
+
+function grit_tenant_improvement_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/tenant-improvement');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_tenant_improvement', 'grit_tenant_improvement_shortcode');
 
 
 /**

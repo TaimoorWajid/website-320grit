@@ -1,0 +1,60 @@
+/* ============================================================
+   Tenant Improvement — page-specific only
+   Requires: healthcare.css + railroads.css
+   ============================================================ */
+
+.rr-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+.rr-check-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #444;
+}
+.rr-check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--hc-orange);
+  font-weight: 700;
+}
+
+.rr-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .rr-diff-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .rr-diff-grid { grid-template-columns: 1fr; }
+}
+
+.rr-diff-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.rr-diff-card .rr-point-icon {
+  margin: 0 auto 1rem;
+}
+.rr-diff-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.4rem;
+}
+.rr-diff-card p {
+  font-size: 0.875rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
