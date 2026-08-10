@@ -48,8 +48,8 @@ SECTION 01: HERO
             FORENSIC<br>
             <span>ACCOUNTING</span>
         </h1>
-        <p class="ew-hero__subtitle">FOLLOW THE NUMBERS.</p>
-        <p class="ew-hero__subtitle">UNCOVER THE TRUTH.</p>
+        <p class="ew-hero__subtitle">FOLLOW THE NUMBERS. <br>
+            UNCOVER THE TRUTH. </p>
         <p class="ew-hero__desc">
             Independent financial investigation.<br>
             Facts you can trust. Evidence that holds up in court.
@@ -77,21 +77,6 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <section class="service-why" id="service-why" data-section="service-why">
     <div class="service-why__container">
 
-        <!-- Left Content -->
-        <div class="service-why__content">
-            <div class="service-why__eyebrow">02 — THE ADVANTAGE</div>
-
-            <h2 class="service-why__title">
-                Financial Clarity.<br>
-                Objective Truth.<br>
-                <span>Stronger <br>
-                    Outcomes.</span>
-            </h2>
-
-            <p class="service-why__desc">
-               Our forensic accounting services deliver unbiased analysis, uncover financial irregularities, and provide the evidence you need to make informed decisions and win cases.
-            </p>
-        </div>
         <!-- Right Content -->
         <div class="service-why__right__cards">
             <article class="service-why__card tilt-card">
@@ -141,43 +126,112 @@ SECTION 02: WHY FORENSIC ACCOUNTING
                 <p>We turn financial insights into stronger case outcomes.</p>
             </article>
         </div>
+        <!-- Left Content -->
+        <div class="service-why__content">
+            <div class="service-why__eyebrow">02 — THE ADVANTAGE</div>
+
+            <h2 class="service-why__title">
+                Financial Clarity.<br>
+                Objective Truth.<br>
+                <span>Stronger <br>
+                    Outcomes.</span>
+            </h2>
+
+            <p class="service-why__desc">
+                Our forensic accounting services deliver unbiased analysis, uncover financial irregularities, and provide the evidence you need to make informed decisions and win cases.
+            </p>
+        </div>
     </div>
 </section>
 <!-- END SECTION 02: WHY FORENSIC ACCOUNTING -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 03: WHAT IS FORENSIC ACCOUNTING -->
-<!-- ============================================ -->
-<section class="fa-what" id="what-is-forensic">
-    <div class="fa-what__inner">
-        <div class="fa-what__left">
-            <div class="ew-hero__eyebrow">03 — Understanding The Method</div>
-            <h2 class="section-headline">What is<br>Forensic Accounting?</h2>
-            <p class="section-body">Forensic accounting applies accounting, auditing, and investigative skills to examine financial data, uncover irregularities, and deliver expert findings for legal, regulatory, and business objectives.</p>
-        </div>
-        <div class="fa-what__center">
-            <div class="fa-what__image-wrap">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Forensic accounting analysis" class="fa-what__image">
+<!-- ============================================ 
+SECTION 03: WHAT IS FORENSIC ACCOUNTING 
+============================================ -->
+<section class="service-what-is" id="service-what-is" data-section="service-what-is">
+    <div class="service-what-is__container">
+
+        <!-- Left Content -->
+        <div class="service-what-is__content">
+            <div class="service-what-is__eyebrow">03 — UNDERSTANDING THE METHOD</div>
+
+            <h2 class="service-what-is__title">
+                WHAT IS<br>
+                <span>FORENSIC ACCOUNTING?</span>
+            </h2>
+
+            <div class="service-what-is__text">
+                <p>
+                    Forensic accounting applies accounting, auditing, and investigative skills to examine financial data, uncover irregularities, and deliver expert findings for legal, regulatory, and business objectives.
+                </p>
             </div>
         </div>
-        <div class="fa-what__right">
-            <ul class="fa-what__list">
-                <li><strong>Fraud Detection</strong><span>Identify fraudulent activities, misrepresentations, and asset theft.</span></li>
-                <li><strong>Financial Investigations</strong><span>Dig deep into complex transactions and financial records.</span></li>
-                <li><strong>Quantify Damages</strong><span>Calculate losses with accuracy and support your claims.</span></li>
-                <li><strong>Expert Reports</strong><span>Clear, comprehensive, and court-ready documentation.</span></li>
-                <li><strong>Litigation Support</strong><span>Assistance at every stage of dispute resolution.</span></li>
-            </ul>
+
+        <!-- Center 3D Building -->
+        <div class="service-what-is__visual">
+            <div class="service-what-is__building-wrapper">
+                <div class="service-what-is__building" data-rotate>
+                    <!-- IMPORTANT: Use CLEAN image without any text/labels -->
+                    <img
+                        src="/wp-content/uploads/2026/08/what-is-forensic-accounting.webp"
+                        alt="Exploded cutaway view of commercial building"
+                        class="service-what-is__building-img">
+                </div>
+
+                <!-- Clean Labels (only these will show) -->
+                <div class="service-what-is__labels">
+                    <div class="service-what-is__label" style="top: 12%;">
+                        <span class="service-what-is__label-dot"></span>
+                        <div class="service-what-is__label-content">
+                            <strong>FRAUD DETECTION</strong>
+                            <span>Identify fraudulent activites, misrepresentations, and assert theft</span>
+                        </div>
+                    </div>
+
+                    <div class="service-what-is__label" style="top: 28%;">
+                        <span class="service-what-is__label-dot"></span>
+                        <div class="service-what-is__label-content">
+                            <strong>FINANCIAL INVESTIGATIONS</strong>
+                            <span>Uncover financial irregularities and discrepancies.</span>
+                        </div>
+                    </div>
+
+                    <div class="service-what-is__label" style="top: 44%;">
+                        <span class="service-what-is__label-dot"></span>
+                        <div class="service-what-is__label-content">
+                            <strong>QUANTIFY DAMAGES</strong>
+                            <span>Calculate financial impact of losses.</span>
+                        </div>
+                    </div>
+
+                    <div class="service-what-is__label" style="top: 60%;">
+                        <span class="service-what-is__label-dot"></span>
+                        <div class="service-what-is__label-content">
+                            <strong>EXPERT REPORTS</strong>
+                            <span>Provide authoritative analysis and testimony.</span>
+                        </div>
+                    </div>
+
+                    <div class="service-what-is__label" style="top: 78%;">
+                        <span class="service-what-is__label-dot"></span>
+                        <div class="service-what-is__label-content">
+                            <strong>LITIGATION SUPPORT</strong>
+                            <span>Provide expert testimony and support for legal proceedings.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
 <!-- END SECTION 03: WHAT IS FORENSIC ACCOUNTING -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 04: OUR SERVICES -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 04: OUR SERVICES
+============================================ -->
 <section class="fa-services" id="services">
     <div class="fa-services__header">
         <p class="section-eyebrow">What We Do</p>
@@ -243,10 +297,10 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 04: OUR SERVICES -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 05: NOTABLE CASES (HORIZONTAL SCROLL) -->
-<!-- ============================================ -->
-<section class="fa-cases" id="notable-cases">
+<!-- ============================================
+SECTION 05: NOTABLE CASES (HORIZONTAL SCROLL)
+============================================ -->
+<!-- <section class="fa-cases" id="notable-cases">
     <div class="fa-cases__header">
         <p class="section-eyebrow">Case Results</p>
         <h2 class="section-headline">Notable Engagements</h2>
@@ -276,13 +330,13 @@ SECTION 02: WHY FORENSIC ACCOUNTING
             <div class="scroll-progress" id="scrollProgress"></div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- END SECTION 05: NOTABLE CASES -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 06: INVESTIGATIVE PROCESS -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 06: INVESTIGATIVE PROCESS
+============================================ -->
 <section class="fa-process" id="process">
     <div class="fa-process__header">
         <p class="section-eyebrow">How We Work</p>
@@ -334,10 +388,10 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 06: INVESTIGATIVE PROCESS -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 07: PROJECT STATS -->
-<!-- ============================================ -->
-<section class="stats-section" id="stats">
+<!-- ============================================
+SECTION 07: PROJECT STATS
+============================================ -->
+<!-- <section class="stats-section" id="stats">
     <div class="stats-canvas" id="statsCanvas"></div>
     <div class="stats-grid">
         <div class="stat-item">
@@ -357,13 +411,13 @@ SECTION 02: WHY FORENSIC ACCOUNTING
             <span class="stat-label">Years Experience</span>
         </div>
     </div>
-</section>
+</section> -->
 <!-- END SECTION 07: PROJECT STATS -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 08: INDUSTRIES WE SUPPORT -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 08: INDUSTRIES WE SUPPORT
+============================================ -->
 <section class="fa-industries" id="industries">
     <div class="fa-industries__bg">
         <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80" alt="City skyline">
@@ -430,9 +484,9 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 08: INDUSTRIES WE SUPPORT -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 09: WHY CHOOSE 320 GRIT -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 09: WHY CHOOSE 320 GRIT
+============================================ -->
 <section class="fa-choose" id="why-choose">
     <div class="fa-choose__inner">
         <div class="fa-choose__left">
@@ -467,10 +521,10 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 09: WHY CHOOSE 320 GRIT -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 10: CASE STUDY / FEATURED PROJECT -->
-<!-- ============================================ -->
-<section class="case-study-section" id="caseStudy">
+<!-- ============================================
+SECTION 10: CASE STUDY / FEATURED PROJECT
+============================================ -->
+<!-- <section class="case-study-section" id="caseStudy">
     <div class="case-study-layout">
         <div class="case-study-image">
             <img src="<?php echo $case_image; ?>" alt="Meridian Securities Investigation">
@@ -494,14 +548,14 @@ SECTION 02: WHY FORENSIC ACCOUNTING
             </a>
         </div>
     </div>
-</section>
+</section> -->
 <!-- END SECTION 10: CASE STUDY -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 11: REVIEWS / TESTIMONIAL -->
-<!-- ============================================ -->
-<section class="testimonial-section" id="testimonials">
+<!-- ============================================
+SECTION 11: REVIEWS / TESTIMONIAL
+============================================ -->
+<!-- <section class="testimonial-section" id="testimonials">
     <div class="testimonial-card" id="testimonialCard">
         <div class="quote-mark">"</div>
         <blockquote id="quoteText">320 GRIT's forensic team uncovered critical evidence that completely shifted the trajectory of our case. Their precision, objectivity, and courtroom credibility were instrumental in securing a favourable verdict.</blockquote>
@@ -510,13 +564,13 @@ SECTION 02: WHY FORENSIC ACCOUNTING
             <span>Managing Partner, Sterling &amp; Associates LLP</span>
         </div>
     </div>
-</section>
+</section> -->
 <!-- END SECTION 11: TESTIMONIAL -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 12: CTA -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 12: CTA
+============================================ -->
 <section class="cta-section" id="cta">
     <div class="cta-bg">
         <div class="gradient-mesh"></div>
@@ -531,9 +585,9 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 12: CTA -->
 
 
-<!-- ============================================ -->
-<!-- SECTION 13: FAQ -->
-<!-- ============================================ -->
+<!-- ============================================
+SECTION 13: FAQ
+============================================ -->
 <section class="faq-section" id="faq">
     <div class="faq-layout">
         <div class="faq-header">

@@ -1,5 +1,5 @@
 (function () {
-  const section = document.querySelector('#what-bid-build');
+  const section = document.querySelector('#service-what-is');
   if (!section) return;
 
   const building = section.querySelector('[data-rotate]');

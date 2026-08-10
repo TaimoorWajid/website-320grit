@@ -130,6 +130,20 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_style(
+        'grit-healthcare',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/healthcare.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/healthcare.css')
+    );
+
+    wp_enqueue_style(
+        'grit-railroads',
+        get_stylesheet_directory_uri() . '/assets/css/markets-we-served/railroads.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/markets-we-served/railroads.css')
+    );
+
+    wp_enqueue_style(
         'grit-token',
         get_stylesheet_directory_uri() . '/assets/css/token.css',
         array('grit-global'),
@@ -241,6 +255,22 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_script(
+        'grit-healthcare',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/healthcare.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/healthcare.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-railroads',
+        get_stylesheet_directory_uri() . '/assets/js/markets-we-served/railroads.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/markets-we-served/railroads.js'),
+        true
+    );
+
+    wp_enqueue_script(
         'grit-helper',
         get_stylesheet_directory_uri() . '/assets/js/helper.js',
         array('jquery'),
@@ -278,32 +308,15 @@ function grit_commercial_render($atts) {
     return ob_get_clean();
 }
 
-function grit_hero_shortcode() {
+
+function grit_bid_build_shortcode() {
     ob_start();
 
-    get_template_part('template-parts/components/bid-build-service/hero');
+    get_template_part('template-parts/components/bid-build-service/bid-build');
 
     return ob_get_clean();
 }
-add_shortcode('grit_hero', 'grit_hero_shortcode');
-
-function grit_why_bid_build_shortcode() {
-    ob_start();
-
-    get_template_part('template-parts/components/bid-build-service/why-bid-build');
-
-    return ob_get_clean();
-}
-add_shortcode('grit_why_bid_build', 'grit_why_bid_build_shortcode');
-
-function grit_what_is_bid_build_shortcode() {
-    ob_start();
-
-    get_template_part('template-parts/components/bid-build-service/what-is-bid-build');
-
-    return ob_get_clean();
-}
-add_shortcode('grit_what_is_bid_build', 'grit_what_is_bid_build_shortcode');
+add_shortcode('grit_bid_build', 'grit_bid_build_shortcode');
 
 function grit_expert_witness_shortcode() {
     ob_start();
@@ -331,6 +344,24 @@ function grit_design_build_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('grit_design_build', 'grit_design_build_shortcode');
+
+function grit_healthcare_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/healthcare');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_healthcare', 'grit_healthcare_shortcode');
+
+function grit_railroads_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/markets-we-served/railroads');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_railroads', 'grit_railroads_shortcode');
 
 
 /**

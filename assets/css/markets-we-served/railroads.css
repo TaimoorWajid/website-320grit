@@ -1,0 +1,428 @@
+/* ============================================================
+   320 GRIT — Railroads Market Page
+   Only page-specific styles
+   Requires: healthcare.css (shared base)
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 01 — HERO (small overrides)
+   ============================================================ */
+.rr-hero-overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(5,5,5,0.88) 0%,
+    rgba(5,5,5,0.65) 50%,
+    rgba(5,5,5,0.4) 100%
+  );
+}
+
+.rr-hero-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--hc-gray-300);
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+
+/* ============================================================
+   SECTION 02 — OVERVIEW
+   ============================================================ */
+.rr-overview {
+  background: #F7F7F7;
+  color: #111;
+}
+
+.rr-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .rr-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.rr-overview-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #444;
+  margin-top: 1.25rem;
+  max-width: 480px;
+}
+
+.rr-overview-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rr-overview-img {
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.rr-overview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rr-overview-points {
+  background: var(--hc-dark-2);
+  border-radius: 0 0 12px 12px;
+  padding: 1.75rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .rr-overview-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rr-point {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.rr-point-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--hc-orange-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hc-orange);
+  flex-shrink: 0;
+}
+
+.rr-point h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--hc-white);
+  margin-bottom: 0.25rem;
+}
+
+.rr-point p {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--hc-gray-400);
+  margin: 0;
+}
+
+
+/* ============================================================
+   SECTION 03 — CAPABILITIES
+   ============================================================ */
+.rr-capabilities {
+  background: var(--hc-dark);
+}
+
+.rr-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1100px) {
+  .rr-cap-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .rr-cap-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .rr-cap-grid { grid-template-columns: 1fr; }
+}
+
+.rr-cap-card {
+  text-align: center;
+  padding: 1.75rem 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: var(--hc-dark-3);
+  transition: all var(--hc-med) var(--hc-ease);
+}
+
+.rr-cap-card:hover {
+  border-color: rgba(255,92,0,0.3);
+  transform: translateY(-4px);
+  background: var(--hc-dark-4);
+}
+
+.rr-cap-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.15rem;
+  border-radius: 12px;
+  background: var(--hc-orange-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hc-orange);
+}
+
+.rr-cap-card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hc-white);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.rr-cap-card p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--hc-text-muted);
+  margin: 0;
+}
+
+
+/* ============================================================
+   SECTION 04 — PROJECT TYPES
+   ============================================================ */
+.rr-projects {
+  background: #F7F7F7;
+  color: #111;
+}
+
+.rr-projects-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .rr-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.rr-projects-img {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.rr-projects-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rr-project-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.rr-project-item:last-child {
+  border-bottom: none;
+}
+
+.rr-project-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255,92,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hc-orange);
+  flex-shrink: 0;
+}
+
+.rr-project-item h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.25rem;
+}
+
+.rr-project-item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   SECTION 05 — APPROACH
+   ============================================================ */
+.rr-approach {
+  background: var(--hc-dark);
+}
+
+.rr-approach-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  .rr-approach-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .rr-approach-steps {
+    grid-template-columns: 1fr;
+  }
+  .rr-step-arrow { display: none; }
+}
+
+.rr-step {
+  text-align: center;
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.rr-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--hc-dark-3);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.15rem;
+  color: var(--hc-orange);
+  transition: all var(--hc-med) var(--hc-ease);
+}
+
+.rr-step:hover .rr-step-icon {
+  background: var(--hc-orange);
+  color: var(--hc-white);
+  border-color: var(--hc-orange);
+  box-shadow: 0 0 24px var(--hc-orange-glow);
+}
+
+.rr-step-num {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--hc-white);
+  margin-bottom: 0.5rem;
+}
+
+.rr-step p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--hc-text-muted);
+  max-width: 180px;
+  margin-inline: auto;
+}
+
+.rr-step-arrow {
+  position: absolute;
+  top: 28px;
+  right: -12px;
+  color: var(--hc-gray-600);
+  font-size: 1.25rem;
+  z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .rr-step-arrow { display: none; }
+}
+
+
+/* ============================================================
+   SECTION 06 — PARTNER
+   ============================================================ */
+.rr-partner {
+  background: #F7F7F7;
+  color: #111;
+}
+
+.rr-partner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .rr-partner-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.rr-partner-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #444;
+  margin-top: 1.25rem;
+  max-width: 460px;
+}
+
+.rr-partner-img {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16/11;
+}
+
+.rr-partner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ============================================================
+   SECTION 07 — FINAL CTA
+   ============================================================ */
+.rr-final-cta {
+  background: var(--hc-dark-2);
+  padding-block: clamp(80px, 10vw, 120px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rr-final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1600&q=60') center/cover;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.rr-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.rr-cta-inner h2 {
+  margin-bottom: 1rem;
+  color: var(--hc-white);
+}
+
+.rr-cta-inner p {
+  font-size: 1.125rem;
+  color: var(--hc-gray-300);
+  margin-bottom: 2rem;
+}

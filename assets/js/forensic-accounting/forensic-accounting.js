@@ -319,55 +319,55 @@ document.addEventListener('DOMContentLoaded', () => {
 // SECTION 05: NOTABLE CASES (HORIZONTAL SCROLL)
 // ======================================================
 
-  const hWrapper = document.querySelector('.fa-cases .horizontal-scroll-wrapper');
-  const hContainer = document.getElementById('horizontalContainer');
-  const hProgress = document.getElementById('scrollProgress');
+  // const hWrapper = document.querySelector('.fa-cases .horizontal-scroll-wrapper');
+  // const hContainer = document.getElementById('horizontalContainer');
+  // const hProgress = document.getElementById('scrollProgress');
 
-  if (hWrapper && hContainer && window.innerWidth > 768) {
-    const cards = hContainer.querySelectorAll('.horizontal-card');
-    const totalWidth = hContainer.scrollWidth - window.innerWidth;
+  // if (hWrapper && hContainer && window.innerWidth > 768) {
+  //   const cards = hContainer.querySelectorAll('.horizontal-card');
+  //   const totalWidth = hContainer.scrollWidth - window.innerWidth;
 
-    const horizontalAnim = gsap.to(hContainer, {
-      x: -totalWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: hWrapper,
-        start: 'top top',
-        end: () => `+=${totalWidth}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          if (hProgress) hProgress.style.transform = `scaleX(${self.progress})`;
-        }
-      }
-    });
-    horizontalAnim.id = 'horizontal';
+  //   const horizontalAnim = gsap.to(hContainer, {
+  //     x: -totalWidth,
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: hWrapper,
+  //       start: 'top top',
+  //       end: () => `+=${totalWidth}`,
+  //       pin: true,
+  //       scrub: 1,
+  //       invalidateOnRefresh: true,
+  //       anticipatePin: 1,
+  //       onUpdate: (self) => {
+  //         if (hProgress) hProgress.style.transform = `scaleX(${self.progress})`;
+  //       }
+  //     }
+  //   });
+  //   horizontalAnim.id = 'horizontal';
 
-    // Image parallax within cards
-    cards.forEach(card => {
-      const img = card.querySelector('img');
-      if (img) {
-        gsap.fromTo(img, { x: '-8%' }, {
-          x: '8%', ease: 'none',
-          scrollTrigger: {
-            trigger: card,
-            containerAnimation: horizontalAnim,
-            start: 'left right',
-            end: 'right left',
-            scrub: 1
-          }
-        });
-      }
-    });
-  }
+  //   // Image parallax within cards
+  //   cards.forEach(card => {
+  //     const img = card.querySelector('img');
+  //     if (img) {
+  //       gsap.fromTo(img, { x: '-8%' }, {
+  //         x: '8%', ease: 'none',
+  //         scrollTrigger: {
+  //           trigger: card,
+  //           containerAnimation: horizontalAnim,
+  //           start: 'left right',
+  //           end: 'right left',
+  //           scrub: 1
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
-  // Cases Header Reveal
-  gsap.from('.fa-cases__header > *', {
-    y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
-    scrollTrigger: { trigger: '.fa-cases__header', start: 'top 85%', toggleActions: 'play none none reverse' }
-  });
+  // // Cases Header Reveal
+  // gsap.from('.fa-cases__header > *', {
+  //   y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
+  //   scrollTrigger: { trigger: '.fa-cases__header', start: 'top 85%', toggleActions: 'play none none reverse' }
+  // });
 
 // ======================================================
 // SECTION 06: INVESTIGATIVE PROCESS (PROCESS)
@@ -415,98 +415,98 @@ document.addEventListener('DOMContentLoaded', () => {
 // SECTION 07: PROJECT STATS
 // ======================================================
 
-  // Count-Up Animation
-  function countUp(el) {
-    const target = parseFloat(el.dataset.target);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const decimals = parseInt(el.dataset.decimals) || 0;
-    const duration = 2000;
-    const startTime = performance.now();
+  // // Count-Up Animation
+  // function countUp(el) {
+  //   const target = parseFloat(el.dataset.target);
+  //   const prefix = el.dataset.prefix || '';
+  //   const suffix = el.dataset.suffix || '';
+  //   const decimals = parseInt(el.dataset.decimals) || 0;
+  //   const duration = 2000;
+  //   const startTime = performance.now();
 
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-      el.textContent = prefix + current.toFixed(decimals) + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
-  }
+  //   function update(currentTime) {
+  //     const elapsed = currentTime - startTime;
+  //     const progress = Math.min(elapsed / duration, 1);
+  //     const eased = 1 - Math.pow(1 - progress, 3);
+  //     const current = target * eased;
+  //     el.textContent = prefix + current.toFixed(decimals) + suffix;
+  //     if (progress < 1) requestAnimationFrame(update);
+  //   }
+  //   requestAnimationFrame(update);
+  // }
 
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counters = entry.target.querySelectorAll('.count-up');
-        counters.forEach((c, i) => {
-          setTimeout(() => countUp(c), i * 150);
-        });
-        countObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
+  // const countObserver = new IntersectionObserver((entries) => {
+  //   entries.forEach(entry => {
+  //     if (entry.isIntersecting) {
+  //       const counters = entry.target.querySelectorAll('.count-up');
+  //       counters.forEach((c, i) => {
+  //         setTimeout(() => countUp(c), i * 150);
+  //       });
+  //       countObserver.unobserve(entry.target);
+  //     }
+  //   });
+  // }, { threshold: 0.4 });
 
-  document.querySelectorAll('.stats-grid, .case-stats-row').forEach(grid => {
-    countObserver.observe(grid);
-  });
+  // document.querySelectorAll('.stats-grid, .case-stats-row').forEach(grid => {
+  //   countObserver.observe(grid);
+  // });
 
-  // Stats Background Wireframe Cubes
-  const statsCanvasEl = document.getElementById('statsCanvas');
-  if (statsCanvasEl && !isTouchDevice && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    try {
-      const sScene = new THREE.Scene();
-      const sCamera = new THREE.PerspectiveCamera(75, statsCanvasEl.offsetWidth / statsCanvasEl.offsetHeight, 0.1, 100);
-      sCamera.position.z = 5;
+  // // Stats Background Wireframe Cubes
+  // const statsCanvasEl = document.getElementById('statsCanvas');
+  // if (statsCanvasEl && !isTouchDevice && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  //   try {
+  //     const sScene = new THREE.Scene();
+  //     const sCamera = new THREE.PerspectiveCamera(75, statsCanvasEl.offsetWidth / statsCanvasEl.offsetHeight, 0.1, 100);
+  //     sCamera.position.z = 5;
 
-      const sRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      sRenderer.setSize(statsCanvasEl.offsetWidth, statsCanvasEl.offsetHeight);
-      sRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      statsCanvasEl.appendChild(sRenderer.domElement);
+  //     const sRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  //     sRenderer.setSize(statsCanvasEl.offsetWidth, statsCanvasEl.offsetHeight);
+  //     sRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  //     statsCanvasEl.appendChild(sRenderer.domElement);
 
-      const cubes = [];
-      for (let i = 0; i < 5; i++) {
-        const geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
-        const edges = new THREE.EdgesGeometry(geometry);
-        const material = new THREE.LineBasicMaterial({ color: 0x27272a, transparent: true, opacity: 0.4 });
-        const cube = new THREE.LineSegments(edges, material);
-        cube.position.set(
-          (Math.random() - 0.5) * 8,
-          (Math.random() - 0.5) * 4,
-          (Math.random() - 0.5) * 3
-        );
-        cube.userData = {
-          rotSpeedX: (Math.random() - 0.5) * 0.01,
-          rotSpeedY: (Math.random() - 0.5) * 0.01,
-          floatSpeed: Math.random() * 0.002 + 0.001,
-          floatOffset: Math.random() * Math.PI * 2
-        };
-        sScene.add(cube);
-        cubes.push(cube);
-      }
+  //     const cubes = [];
+  //     for (let i = 0; i < 5; i++) {
+  //       const geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+  //       const edges = new THREE.EdgesGeometry(geometry);
+  //       const material = new THREE.LineBasicMaterial({ color: 0x27272a, transparent: true, opacity: 0.4 });
+  //       const cube = new THREE.LineSegments(edges, material);
+  //       cube.position.set(
+  //         (Math.random() - 0.5) * 8,
+  //         (Math.random() - 0.5) * 4,
+  //         (Math.random() - 0.5) * 3
+  //       );
+  //       cube.userData = {
+  //         rotSpeedX: (Math.random() - 0.5) * 0.01,
+  //         rotSpeedY: (Math.random() - 0.5) * 0.01,
+  //         floatSpeed: Math.random() * 0.002 + 0.001,
+  //         floatOffset: Math.random() * Math.PI * 2
+  //       };
+  //       sScene.add(cube);
+  //       cubes.push(cube);
+  //     }
 
-      let sTime = 0;
-      function animateStats() {
-        requestAnimationFrame(animateStats);
-        sTime += 0.016;
-        cubes.forEach(cube => {
-          cube.rotation.x += cube.userData.rotSpeedX;
-          cube.rotation.y += cube.userData.rotSpeedY;
-          cube.position.y += Math.sin(sTime * 0.5 + cube.userData.floatOffset) * cube.userData.floatSpeed;
-        });
-        sRenderer.render(sScene, sCamera);
-      }
-      animateStats();
+  //     let sTime = 0;
+  //     function animateStats() {
+  //       requestAnimationFrame(animateStats);
+  //       sTime += 0.016;
+  //       cubes.forEach(cube => {
+  //         cube.rotation.x += cube.userData.rotSpeedX;
+  //         cube.rotation.y += cube.userData.rotSpeedY;
+  //         cube.position.y += Math.sin(sTime * 0.5 + cube.userData.floatOffset) * cube.userData.floatSpeed;
+  //       });
+  //       sRenderer.render(sScene, sCamera);
+  //     }
+  //     animateStats();
 
-      window.addEventListener('resize', () => {
-        sCamera.aspect = statsCanvasEl.offsetWidth / statsCanvasEl.offsetHeight;
-        sCamera.updateProjectionMatrix();
-        sRenderer.setSize(statsCanvasEl.offsetWidth, statsCanvasEl.offsetHeight);
-      });
-    } catch (e) {
-      console.log('Stats WebGL fallback');
-    }
-  }
+  //     window.addEventListener('resize', () => {
+  //       sCamera.aspect = statsCanvasEl.offsetWidth / statsCanvasEl.offsetHeight;
+  //       sCamera.updateProjectionMatrix();
+  //       sRenderer.setSize(statsCanvasEl.offsetWidth, statsCanvasEl.offsetHeight);
+  //     });
+  //   } catch (e) {
+  //     console.log('Stats WebGL fallback');
+  //   }
+  // }
 
 // ======================================================
 // SECTION 08: INDUSTRIES WE SUPPORT
@@ -540,47 +540,47 @@ document.addEventListener('DOMContentLoaded', () => {
 // SECTION 10: CASE STUDY / FEATURED PROJECT
 // ======================================================
 
-  // Case Study Parallax
-  const caseImg = document.querySelector('.case-study-image img');
-  if (caseImg) {
-    gsap.fromTo(caseImg, { y: '-10%' }, {
-      y: '10%', ease: 'none',
-      scrollTrigger: {
-        trigger: '.case-study-section',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      }
-    });
-  }
+  // // Case Study Parallax
+  // const caseImg = document.querySelector('.case-study-image img');
+  // if (caseImg) {
+  //   gsap.fromTo(caseImg, { y: '-10%' }, {
+  //     y: '10%', ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: '.case-study-section',
+  //       start: 'top bottom',
+  //       end: 'bottom top',
+  //       scrub: 1
+  //     }
+  //   });
+  // }
 
-  gsap.from('.case-study-content > *', {
-    y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
-    scrollTrigger: { trigger: '.case-study-content', start: 'top 75%', toggleActions: 'play none none reverse' }
-  });
+  // gsap.from('.case-study-content > *', {
+  //   y: 40, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
+  //   scrollTrigger: { trigger: '.case-study-content', start: 'top 75%', toggleActions: 'play none none reverse' }
+  // });
 
 // ======================================================
 // SECTION 11: REVIEWS / TESTIMONIAL
 // ======================================================
 
-  // Testimonial 3D Perspective
-  const testimonialCard = document.getElementById('testimonialCard');
-  if (testimonialCard && !isTouchDevice) {
-    testimonialCard.addEventListener('mousemove', (e) => {
-      const rect = testimonialCard.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      testimonialCard.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
-    });
-    testimonialCard.addEventListener('mouseleave', () => {
-      testimonialCard.style.transform = 'rotateY(0) rotateX(0)';
-    });
-  }
+  // // Testimonial 3D Perspective
+  // const testimonialCard = document.getElementById('testimonialCard');
+  // if (testimonialCard && !isTouchDevice) {
+  //   testimonialCard.addEventListener('mousemove', (e) => {
+  //     const rect = testimonialCard.getBoundingClientRect();
+  //     const x = (e.clientX - rect.left) / rect.width - 0.5;
+  //     const y = (e.clientY - rect.top) / rect.height - 0.5;
+  //     testimonialCard.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+  //   });
+  //   testimonialCard.addEventListener('mouseleave', () => {
+  //     testimonialCard.style.transform = 'rotateY(0) rotateX(0)';
+  //   });
+  // }
 
-  gsap.from('.testimonial-card', {
-    y: 60, opacity: 0, duration: 1.2, ease: 'expo.out',
-    scrollTrigger: { trigger: '.testimonial-section', start: 'top 75%', toggleActions: 'play none none reverse' }
-  });
+  // gsap.from('.testimonial-card', {
+  //   y: 60, opacity: 0, duration: 1.2, ease: 'expo.out',
+  //   scrollTrigger: { trigger: '.testimonial-section', start: 'top 75%', toggleActions: 'play none none reverse' }
+  // });
 
 // ======================================================
 // SECTION 12: CTA

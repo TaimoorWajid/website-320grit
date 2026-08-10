@@ -1,8 +1,8 @@
 /* ============================================
-   WHAT IS BID-BUILD - Complete Refined CSS
+   WHAT IS FORENSIC ACCOUNTING - Final Fixed Version
    ============================================ */
 
-.what-bid-build {
+.service-what-is {
   position: relative;
   padding: 120px 0;
   background: var(--nectar-extra-color-2);
@@ -10,24 +10,24 @@
   overflow: hidden;
 }
 
-.what-bid-build__container {
+.service-what-is__container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 40px 50px;
   align-items: center;
 }
 
 /* ---------- LEFT CONTENT ---------- */
-.what-bid-build__content {
+.service-what-is__content {
   position: relative;
   z-index: 5;
   max-width: 480px;
 }
 
-.what-bid-build__eyebrow {
+.service-what-is__eyebrow {
   font-size: 12px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.what-bid-build__title {
+.service-what-is__title {
   font-size: clamp(42px, 5vw, 64px);
   font-weight: 700;
   line-height: 1.05;
@@ -50,93 +50,115 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.what-bid-build__title span {
+.service-what-is__title span {
   color: var(--nectar-accent-color);
 }
 
-.what-bid-build__text p {
+.service-what-is__text p {
   font-size: 16.5px;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.72);
-  margin: 0 0 18px 0;
+  margin: 0;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.what-bid-build__text p:last-child {
-  margin-bottom: 0;
-}
-
-/* ---------- RIGHT VISUAL (3D BUILDING) ---------- */
-.what-bid-build__visual {
+/* ---------- RIGHT VISUAL ---------- */
+.service-what-is__visual {
   position: relative;
   display: flex;
   justify-content: center;
-  perspective: 1400px;
-  perspective-origin: 50% 45%;
+  align-items: center;
+  min-width: 0;
 }
 
-.what-bid-build__building-wrapper {
+.service-what-is__building-wrapper {
   position: relative;
   width: 100%;
-  max-width: 560px;
-  transform-style: preserve-3d;
+  max-width: 680px;
+  isolation: isolate; /* creates stacking context so z-index works reliably */
 }
 
-.what-bid-build__building {
+/* Dark gradient overlay from right → left so labels stay readable */
+.service-what-is__building-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 55%;                 /* covers a bit more than half */
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2;                 /* above image, below labels */
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Image stays behind labels */
+.service-what-is__building {
+  position: relative;
+  z-index: 1;
   transform-style: preserve-3d;
   will-change: transform;
   transition: transform 0.08s linear;
 }
 
-.what-bid-build__building-img {
+.service-what-is__building-img {
   width: 100%;
   height: auto;
   display: block;
   filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.65));
 }
 
-/* ---------- LABELS ---------- */
-.what-bid-build__labels {
+/* ---------- LABELS (always on top of the image) ---------- */
+.service-what-is__labels {
   position: absolute;
   top: 0;
-  right: -22%;
+  right: -15%;
   bottom: 0;
-  width: 260px;
+  width: 38%;
+  max-width: 260px;
+  z-index: 10;                 /* higher than image */
   pointer-events: none;
-  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 6% 0;
 }
 
-.what-bid-build__label {
-  position: absolute;
-  right: 0;
+.service-what-is__label {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateX(24px);
   transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.what-bid-build__label-dot {
+.service-what-is__label-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: var(--nectar-accent-color);
   flex-shrink: 0;
   margin-top: 5px;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
 }
 
-.what-bid-build__label-content {
+.service-what-is__label-content {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
-.what-bid-build__label-content strong {
+.service-what-is__label-content strong {
   display: block;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -144,83 +166,95 @@
   line-height: 1.25;
 }
 
-.what-bid-build__label-content span {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.62);
-  line-height: 1.35;
+.service-what-is__label-content span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.4;
 }
 
-/* Exact vertical positions for the current image */
-.what-bid-build__label:nth-child(1) { top: 10%; }   /* STRUCTURE */
-.what-bid-build__label:nth-child(2) { top: 26%; }   /* BUILDING ENVELOPE */
-.what-bid-build__label:nth-child(3) { top: 42%; }   /* MECHANICAL / ELECTRICAL */
-.what-bid-build__label:nth-child(4) { top: 58%; }   /* INTERIOR SYSTEMS */
-.what-bid-build__label:nth-child(5) { top: 76%; }   /* FOUNDATION */
-
 /* ---------- IN-VIEW ANIMATIONS ---------- */
-.what-bid-build.is-inview .what-bid-build__eyebrow,
-.what-bid-build.is-inview .what-bid-build__title,
-.what-bid-build.is-inview .what-bid-build__text p {
+.service-what-is.is-inview .service-what-is__eyebrow,
+.service-what-is.is-inview .service-what-is__title,
+.service-what-is.is-inview .service-what-is__text p {
   opacity: 1;
   transform: translateY(0);
 }
 
-.what-bid-build.is-inview .what-bid-build__eyebrow { transition-delay: 0.1s; }
-.what-bid-build.is-inview .what-bid-build__title   { transition-delay: 0.2s; }
-.what-bid-build.is-inview .what-bid-build__text p:nth-child(1) { transition-delay: 0.35s; }
-.what-bid-build.is-inview .what-bid-build__text p:nth-child(2) { transition-delay: 0.45s; }
+.service-what-is.is-inview .service-what-is__eyebrow { transition-delay: 0.1s; }
+.service-what-is.is-inview .service-what-is__title   { transition-delay: 0.2s; }
+.service-what-is.is-inview .service-what-is__text p  { transition-delay: 0.35s; }
 
-.what-bid-build.is-inview .what-bid-build__label {
+.service-what-is.is-inview .service-what-is__label {
   opacity: 1;
   transform: translateX(0);
 }
 
-.what-bid-build.is-inview .what-bid-build__label:nth-child(1) { transition-delay: 0.5s; }
-.what-bid-build.is-inview .what-bid-build__label:nth-child(2) { transition-delay: 0.6s; }
-.what-bid-build.is-inview .what-bid-build__label:nth-child(3) { transition-delay: 0.7s; }
-.what-bid-build.is-inview .what-bid-build__label:nth-child(4) { transition-delay: 0.8s; }
-.what-bid-build.is-inview .what-bid-build__label:nth-child(5) { transition-delay: 0.9s; }
+.service-what-is.is-inview .service-what-is__label:nth-child(1) { transition-delay: 0.4s; }
+.service-what-is.is-inview .service-what-is__label:nth-child(2) { transition-delay: 0.5s; }
+.service-what-is.is-inview .service-what-is__label:nth-child(3) { transition-delay: 0.6s; }
+.service-what-is.is-inview .service-what-is__label:nth-child(4) { transition-delay: 0.7s; }
+.service-what-is.is-inview .service-what-is__label:nth-child(5) { transition-delay: 0.8s; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1200px) {
-  .what-bid-build__labels {
-    right: -20px;
-    width: 240px;
+  .service-what-is__labels {
+    width: 42%;
+    max-width: 240px;
   }
 }
 
 @media (max-width: 1024px) {
-  .what-bid-build__container {
+  .service-what-is__container {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 48px;
   }
 
-  .what-bid-build__content {
-    max-width: 600px;
+  .service-what-is__content {
+    max-width: 640px;
   }
 
-  .what-bid-build__labels {
-    right: 0;
-    width: 230px;
+  .service-what-is__building-wrapper {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* On tablet/mobile → labels go under the image in a nice list */
+  .service-what-is__labels {
+    position: static;
+    width: 100%;
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+    padding: 32px 0 0;
+    margin-top: 4px;
+  }
+
+  .service-what-is__label {
+    transform: translateY(18px);
+  }
+
+  .service-what-is.is-inview .service-what-is__label {
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
-  .what-bid-build {
+@media (max-width: 640px) {
+  .service-what-is {
     padding: 80px 0;
   }
 
-  .what-bid-build__container {
+  .service-what-is__container {
     padding: 0 20px;
-    gap: 40px;
+    gap: 36px;
   }
 
-  .what-bid-build__title {
-    font-size: 38px;
+  .service-what-is__title {
+    font-size: 36px;
   }
 
-  /* Hide floating labels on mobile for cleanliness */
-  .what-bid-build__labels {
-    display: none;
+  .service-what-is__labels {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
