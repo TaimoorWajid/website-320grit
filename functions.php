@@ -179,6 +179,76 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_style(
+        'grit-awards',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/awards.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/awards.css')
+    );
+
+    wp_enqueue_style(
+        'grit-community',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/community.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/community.css')
+    );
+
+    wp_enqueue_style(
+        'grit-our-leadership',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/our-leadership.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/our-leadership.css')
+    );
+
+    wp_enqueue_style(
+        'grit-our-story',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/our-story.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/our-story.css')
+    );
+
+    wp_enqueue_style(
+        'grit-our-values',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/our-values.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/our-values.css')
+    );
+
+    wp_enqueue_style(
+        'grit-quality',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/quality.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/quality.css')
+    );
+
+    wp_enqueue_style(
+        'grit-safety',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/safety.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/safety.css')
+    );
+
+    wp_enqueue_style(
+        'grit-sustainability',
+        get_stylesheet_directory_uri() . '/assets/css/about-us/sustainability.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/about-us/sustainability.css')
+    );
+
+    wp_enqueue_style(
+        'grit-owner-centric',
+        get_stylesheet_directory_uri() . '/assets/css/our-approach/owner-centric.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/our-approach/owner-centric.css')
+    );
+
+    wp_enqueue_style(
+        'grit-california',
+        get_stylesheet_directory_uri() . '/assets/css/our-locations/california.css',
+        array('grit-global'),
+        grit_asset_version('/assets/css/our-locations/california.css')
+    );
+
+    wp_enqueue_style(
         'grit-token',
         get_stylesheet_directory_uri() . '/assets/css/token.css',
         array('grit-global'),
@@ -346,6 +416,86 @@ function grit_enqueue_assets()
     );
 
     wp_enqueue_script(
+        'grit-awards',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/awards.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/awards.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-community',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/community.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/community.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-our-leadership',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/our-leadership.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/our-leadership.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-our-story',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/our-story.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/our-story.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-our-values',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/our-values.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/our-values.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-quality',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/quality.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/quality.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-safety',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/safety.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/safety.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-sustainability',
+        get_stylesheet_directory_uri() . '/assets/js/about-us/sustainability.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/about-us/sustainability.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-owner-centric',
+        get_stylesheet_directory_uri() . '/assets/js/our-approach/owner-centric.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/our-approach/owner-centric.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'grit-california',
+        get_stylesheet_directory_uri() . '/assets/js/our-locations/california.js',
+        array('jquery'),
+        grit_asset_version('/assets/js/our-locations/california.js'),
+        true
+    );
+
+    wp_enqueue_script(
         'grit-helper',
         get_stylesheet_directory_uri() . '/assets/js/helper.js',
         array('jquery'),
@@ -482,6 +632,96 @@ function grit_tenant_improvement_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('grit_tenant_improvement', 'grit_tenant_improvement_shortcode');
+
+function grit_awards_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/awards');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_awards', 'grit_awards_shortcode');
+
+function grit_community_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/community');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_community', 'grit_community_shortcode');
+
+function grit_our_leadership_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/our-leadership');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_our_leadership', 'grit_our_leadership_shortcode');
+
+function grit_our_story_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/our-story');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_our_story', 'grit_our_story_shortcode');
+
+function grit_our_values_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/our-values');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_our_values', 'grit_our_values_shortcode');
+
+function grit_quality_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/quality');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_quality', 'grit_quality_shortcode');
+
+function grit_safety_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/safety');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_safety', 'grit_safety_shortcode');
+
+function grit_sustainability_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/about-us/sustainability');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_sustainability', 'grit_sustainability_shortcode');
+
+function grit_owner_centric_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/our-approach/owner-centric');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_owner_centric', 'grit_owner_centric_shortcode');
+
+function grit_california_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/components/our-locations/california');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_california', 'grit_california_shortcode');
 
 
 /**
