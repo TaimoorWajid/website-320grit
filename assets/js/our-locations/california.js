@@ -62,8 +62,6 @@
     let currentAngle = 0;
     let targetAngle = 0;
     let rafId = null;
-    let pointerInside = false;
-
     function layoutCards(angleOffset) {
       ringCards.forEach((card, i) => {
         const deg = angleOffset + i * STEP;
@@ -113,50 +111,61 @@
       }
     }
 
-    // Wheel inside section → rotate cards, block page scroll
-    let isLocked = false;
+    // Only consume wheel/touch events while the pointer is over the ring itself.
+    let isPointerInsideRing = false;
     let wheelCooldown = false;
+    let lastWheelTime = 0;
 
-    function onWheel(e) {
-      if (!isLocked) return;
+    if (ringViewport) {
+      ringViewport.addEventListener('mouseenter', () => {
+        isPointerInsideRing = true;
+      });
 
-      // At ends: let user scroll the page out of the section
-      if (e.deltaY < 0 && activeIndex === 0) return;       // top card + scroll up → leave
-      if (e.deltaY > 0 && activeIndex === N - 1) return;   // last card + scroll down → leave
+      ringViewport.addEventListener('mousemove', (e) => {
+        const rect = ringViewport.getBoundingClientRect();
+        isPointerInsideRing = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      });
 
-      e.preventDefault();
-      e.stopPropagation();
+      ringViewport.addEventListener('mouseleave', () => {
+        isPointerInsideRing = false;
+      });
 
-      if (wheelCooldown) return;
-      wheelCooldown = true;
-      setTimeout(() => { wheelCooldown = false; }, 320); // one card per gesture
+      ringViewport.style.overscrollBehavior = 'contain';
 
-      if (e.deltaY > 0) goToIndex(activeIndex + 1, true);
-      else goToIndex(activeIndex - 1, true);
+      ringViewport.addEventListener('wheel', (e) => {
+        if (!isPointerInsideRing) return;
+
+        const rawDelta = e.deltaY || e.deltaX;
+        if (Math.abs(rawDelta) < 1) return;
+
+        const normalizedDelta = e.deltaMode === 1 ? rawDelta * 16 : e.deltaMode === 2 ? rawDelta * 100 : rawDelta;
+        const direction = normalizedDelta > 0 ? 1 : -1;
+        const now = performance.now();
+
+        // Trackpad can deliver very small, frequent values; only advance one card per meaningful scroll event.
+        if (now - lastWheelTime < 120 && Math.abs(normalizedDelta) < 50) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+        lastWheelTime = now;
+
+        if (wheelCooldown) return;
+        wheelCooldown = true;
+        setTimeout(() => { wheelCooldown = false; }, 180);
+
+        goToIndex(activeIndex + direction, true);
+      }, { passive: false });
     }
 
-    // Lock while the Markets section is the main thing on screen
-    const ringSec = document.getElementById('ca-markets') || ringViewport.parentElement;
-    const lockIO = new IntersectionObserver(
-      ([entry]) => {
-        isLocked = entry.isIntersecting && entry.intersectionRatio >= 0.55;
-      },
-      { threshold: [0.55, 0.7, 0.85] }
-    );
-    if (ringSec) lockIO.observe(ringSec);
-
-    // Must be on window/document with passive:false so preventDefault always works
-    window.addEventListener('wheel', onWheel, { passive: false });
-
-    // Touch
+    // Touch: scope to the ring area, not the whole page
     let touchY = null;
-    if (ringSec) {
-      ringSec.addEventListener('touchstart', (e) => {
+    if (ringViewport) {
+      ringViewport.addEventListener('touchstart', (e) => {
         touchY = e.touches[0].clientY;
       }, { passive: true });
 
-      ringSec.addEventListener('touchmove', (e) => {
-        if (!isLocked || touchY === null) return;
+      ringViewport.addEventListener('touchmove', (e) => {
+        if (!isPointerInsideRing || touchY === null) return;
         const dy = touchY - e.touches[0].clientY;
         if (Math.abs(dy) < 36) return;
 
@@ -168,7 +177,7 @@
         touchY = e.touches[0].clientY;
       }, { passive: false });
 
-      ringSec.addEventListener('touchend', () => { touchY = null; });
+      ringViewport.addEventListener('touchend', () => { touchY = null; });
     }
 
     ringDots.forEach((dot) => {

@@ -276,8 +276,8 @@
 
 .ca-ring-viewport {
   position: relative;
-  height: 380px;              /* was 480px */
-  perspective: 1100px;
+  height: 480px;              /* was 480px */
+  perspective: 2000px;
   perspective-origin: 50% 45%;
   margin-top: 0.5rem;
   overflow: hidden;
