@@ -38,7 +38,7 @@ SECTION 01: HERO
     <div class="ew-hero__grid"></div>
   </div>
 
-  <div class="ew-hero__content">
+  <div class="hc-container">
     <div class="ew-hero__eyebrow">01 — Our Services</div>
     <h1 class="ew-hero__title">
       BID-<br>
