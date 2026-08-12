@@ -5,6 +5,10 @@
    ============================================================ */
 
 :root {
+  --hc-purple: #792CD5;
+  --hc-purple-hover: #6D28C0;
+  --hc-purple-glow: rgba(121, 44, 213, 0.35);
+  --hc-purple-soft: rgba(121, 44, 213, 0.12);
   --ca-orange: #FF5C00;
   --ca-orange-dim: rgba(255, 92, 0, 0.14);
   --ca-orange-glow: rgba(255, 92, 0, 0.4);
@@ -13,6 +17,7 @@
   --ca-card: #121212;
   --ca-border: rgba(255,255,255,0.07);
   --ca-text: #F2F2F2;
+  --ca-white: #FFFFFF;
   --ca-muted: #8A8A8A;
   --ca-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ca-max: 1280px;
@@ -28,7 +33,6 @@
 .ca-section {
   position: relative;
   padding-block: clamp(80px, 11vw, 140px);
-  background: var(--ca-black);
   color: var(--ca-text);
   overflow: hidden;
 }
@@ -70,7 +74,7 @@
 .ca-body {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--ca-muted);
+  color: var(--ca-white);
   margin-top: 1rem;
   max-width: 480px;
 }
@@ -114,6 +118,17 @@
   border-color: var(--ca-orange);
   color: var(--ca-orange);
 }
+.ca-btn-ghost-purple {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.ca-btn-ghost-purple:hover {
+  border-color: var(--hc-purple);
+  color: var(--hc-purple);
+}
+
 .ca-btn-lg { padding: 1.1rem 2.2rem; font-size: 1rem; }
 
 .ca-link {
@@ -196,20 +211,46 @@
 
 .ca-moves-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: start;
 }
 @media (max-width: 900px) {
   .ca-moves-grid { grid-template-columns: 1fr; }
 }
 
-.ca-map-glow {
-  width: 140px;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 20px rgba(255,92,0,0.3));
+.ca-moves-left {
+  position: relative;
+  overflow: hidden;          /* keeps the image inside the box */
 }
-.ca-state-svg { width: 100%; height: auto; }
+
+/* background image layer */
+.ca-map-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/wp-content/uploads/2026/08/california-background-map.webp');  /* ← change this path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;             /* adjust strength of the image */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* optional soft orange glow on top of the image */
+.ca-map-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(255,92,0,0.25) 0%, transparent 65%);
+}
+
+/* text content sits above the image */
+.ca-moves-content {
+  position: relative;
+  z-index: 1;
+  padding: 50px 0px 100px 200px;
+}
 
 .ca-approach-row {
   display: grid;
@@ -269,7 +310,6 @@
    3D RING — markets carousel
    ============================================================ */
 .ca-ring-sec {
-  background: #080808;
   padding-bottom: 60px;
   overflow: visible;
 }
@@ -313,8 +353,8 @@
 }
 
 .ca-ring-card.is-front .ca-ring-card-inner {
-  border-color: rgba(255,92,0,0.4);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 30px rgba(255,92,0,0.15);
+  border-color: rgba(121,44,213,0.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 30px rgba(121,44,213,0.15);
 }
 
 .ca-ring-img {
@@ -375,8 +415,8 @@
   transition: all 0.3s;
 }
 .ca-dot.is-active {
-  background: var(--ca-orange);
-  box-shadow: 0 0 10px var(--ca-orange-glow);
+  background: var(--hc-purple);
+  box-shadow: 0 0 10px var(--ca-purple-glow);
   transform: scale(1.3);
 }
 
@@ -403,7 +443,7 @@
   transition: all 0.4s var(--ca-ease);
 }
 .ca-svc-card:hover {
-  border-color: rgba(255,92,0,0.3);
+  border-color: rgba(121,44,213,0.3);
   transform: translateY(-5px);
 }
 
@@ -412,11 +452,11 @@
   height: 48px;
   margin: 0 auto 1rem;
   border-radius: 12px;
-  background: var(--ca-orange-dim);
+  background: var(--hc-purple-soft);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ca-orange);
+  color: var(--hc-purple);
 }
 .ca-svc-card h3 {
   font-size: 0.9rem;
@@ -598,7 +638,7 @@
   transition: all 0.4s var(--ca-ease);
 }
 .ca-why-card:hover {
-  border-color: rgba(255,92,0,0.3);
+  border-color: rgba(121,44,213,0.3);
   transform: translateY(-4px);
 }
 
@@ -607,11 +647,11 @@
   height: 48px;
   margin: 0 auto 1rem;
   border-radius: 12px;
-  background: var(--ca-orange-dim);
+  background: var(--hc-purple-soft);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ca-orange);
+  color: var(--hc-purple);
 }
 .ca-why-card h3 {
   font-size: 0.9rem;
@@ -736,7 +776,7 @@
 
 .ca-faq-icon {
   font-size: 1.25rem;
-  color: var(--ca-orange);
+  color: var(--hc-purple);
   flex-shrink: 0;
   transition: transform 0.3s;
 }

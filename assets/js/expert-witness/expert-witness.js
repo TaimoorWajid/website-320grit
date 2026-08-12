@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // /* SECTION 01: HERO */
 // ======================================================
 
-  const hero = document.querySelector('#ew-hero');
+  const hero = document.querySelector('#hero');
   if (hero) {
     // Entrance
     window.addEventListener('load', () => {

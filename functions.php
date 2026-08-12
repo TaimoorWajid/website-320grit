@@ -740,33 +740,38 @@ function grit_global_sidenav() {
     <nav class="grit-sidenav" id="gritSidenav" aria-label="Page sections">
         <div class="grit-sidenav__line"></div>
         <ul class="grit-sidenav__list">
-            <li class="grit-sidenav__item active" data-section="hero-bid-build">
+            <li class="grit-sidenav__item active" data-section="hero">
                 <span class="grit-sidenav__num">01</span>
-                <span class="grit-sidenav__label">Service Section</span>
+                <span class="grit-sidenav__label">Overview</span>
             </li>
-            <li class="grit-sidenav__item" data-section="what-bid-build">
+            <li class="grit-sidenav__item" data-section="service-why">
                 <span class="grit-sidenav__num">02</span>
-                <span class="grit-sidenav__label">What is Bid-Build?</span>
-            </li>
-            
-            <li class="grit-sidenav__item" data-section="why-bid-build">
-                <span class="grit-sidenav__num">03</span>
                 <span class="grit-sidenav__label">Why Bid-Build?</span>
             </li>
-            <li class="grit-sidenav__item" data-section="execution">
+            
+            <li class="grit-sidenav__item" data-section="service-what-is">
+                <span class="grit-sidenav__num">03</span>
+                <span class="grit-sidenav__label">What is Bid-Build?</span>
+            </li>
+            <li class="grit-sidenav__item" data-section="process">
                 <span class="grit-sidenav__num">04</span>
+                <span class="grit-sidenav__label">Our Process</span>
             </li>
-            <li class="grit-sidenav__item" data-section="collaboration">
+            <li class="grit-sidenav__item" data-section="industries">
                 <span class="grit-sidenav__num">05</span>
+                <span class="grit-sidenav__label">Industries we serve</span>
             </li>
-            <li class="grit-sidenav__item" data-section="gallery">
+            <li class="grit-sidenav__item" data-section="why-320">
                 <span class="grit-sidenav__num">06</span>
+                <span class="grit-sidenav__label">Why 320 Grit?</span>
             </li>
-            <li class="grit-sidenav__item" data-section="benefits">
+            <li class="grit-sidenav__item" data-section="get-started">
                 <span class="grit-sidenav__num">07</span>
+                <span class="grit-sidenav__label">Get Started</span>
             </li>
-            <li class="grit-sidenav__item" data-section="cta">
+            <li class="grit-sidenav__item" data-section="faq">
                 <span class="grit-sidenav__num">08</span>
+                <span class="grit-sidenav__label">Frequently Asked Questions</span>
             </li>
         </ul>
     </nav>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 320 GRIT — California Location Landing
  * Premium scroll / 3D ring / parallax | No header/footer
@@ -65,19 +66,21 @@ $faqs = [
 <!-- ============================================================
      01 — HERO (fixed bg, content floats over)
      ============================================================ -->
-<section class="ca-hero" id="ca-hero">
-  <div class="ca-hero-bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85" alt="" width="1920" height="1080" fetchpriority="high">
-  </div>
-  <div class="ca-hero-overlay"></div>
-  <div class="ca-container ca-hero-inner">
-    <div class="ca-hero-content" data-reveal="up">
-      <span class="ca-eyebrow">Where We Work</span>
-      <h1 class="ca-display">California<br><span class="ca-accent">Built with Purpose.</span></h1>
-      <p class="ca-lead">From complex commercial environments to specialized facilities, 320 Grit brings construction management, owner representation and development expertise to projects across California.</p>
-      <div class="ca-hero-cta">
-        <a href="#contact" class="ca-btn ca-btn-primary">Talk to Our California Team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#ca-services" class="ca-btn ca-btn-ghost">Explore Our Services</a>
+<section class="hc-hero rr-hero" id="at-hero">
+  <div class="hc-hero-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85" alt="" width="1920" height="1080" fetchpriority="high"></div>
+  <div class="hc-hero-overlay rr-hero-overlay" aria-hidden="true"></div>
+  <div class="hc-container">
+    <div class="hc-hero-content hc-reveal">
+      <div class="hc-hero-label"><span class="hc-line"></span><span class="hc-label">Where We Work</span></div>
+      <h1 class="hc-display-xl">California<br><span class="hc-purple">Built with Purpose.</span></h1>
+      <p class="hc-hero-sub">From complex commercial environments to specialized facilities, 320 Grit brings construction management, owner representation and development expertise to projects across California.</p>
+
+      <!-- <p class="rr-hero-desc">We build advanced technology facilities that power discoveries, drive innovation, and improve lives. From research laboratories to high-tech manufacturing environments, we deliver spaces that perform today and adapt for tomorrow.</p> -->
+      <div class="hc-hero-actions">
+        <a href="#at-cta" class="hc-btn hc-btn-primary">Talk to Our California Team <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg></a>
+        <a href="#contact" class="hc-btn hc-btn-outline">Explore Our Services</a>
       </div>
     </div>
   </div>
@@ -89,28 +92,25 @@ $faqs = [
      ============================================================ -->
 <section class="ca-section ca-moves" id="ca-moves">
   <div class="ca-container ca-moves-grid">
-    <div class="ca-moves-left" data-reveal="left">
-      <div class="ca-map-glow">
-        <svg viewBox="0 0 200 240" class="ca-state-svg" aria-hidden="true">
-          <path d="M40 20 L90 10 L160 30 L170 80 L155 140 L140 200 L100 220 L60 200 L30 150 L20 80 Z" fill="rgba(255,92,0,0.08)" stroke="rgba(255,92,0,0.4)" stroke-width="1.5"/>
-          <circle cx="95" cy="55" r="4" fill="#FF5C00"/><circle cx="120" cy="90" r="3.5" fill="#FF5C00"/><circle cx="110" cy="130" r="4" fill="#FF5C00"/><circle cx="100" cy="175" r="3.5" fill="#FF5C00"/><circle cx="85" cy="200" r="3" fill="#FF5C00"/>
-        </svg>
-      </div>
-      <h2 class="ca-h2">California Moves Fast.<br><span class="ca-accent">Your Project Has to Move Smarter.</span></h2>
-      <p class="ca-body">California’s construction environment demands more than simply getting a building built. Projects must navigate complex requirements, evolving markets, demanding schedules, specialized systems and a wide range of stakeholders.</p>
-      <p class="ca-body">320 Grit brings an owner-focused approach to that complexity—helping teams make informed decisions, manage risk and keep the project moving toward its intended outcome.</p>
-    </div>
     <div class="ca-moves-right" data-reveal="right">
       <span class="ca-eyebrow">Our California Approach</span>
       <div class="ca-approach-row">
         <?php foreach ($approach as $i => $a) : ?>
-        <div class="ca-approach-step" data-reveal="up" data-delay="<?php echo $i * 90; ?>">
-          <div class="ca-step-num"><?php echo $a['num']; ?></div>
-          <div class="ca-step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $a['icon']; ?></svg></div>
-          <h3><?php echo $a['title']; ?></h3>
-          <p><?php echo $a['text']; ?></p>
-        </div>
+          <div class="ca-approach-step" data-reveal="up" data-delay="<?php echo $i * 90; ?>">
+            <div class="ca-step-num"><?php echo $a['num']; ?></div>
+            <div class="ca-step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $a['icon']; ?></svg></div>
+            <h3><?php echo $a['title']; ?></h3>
+            <p><?php echo $a['text']; ?></p>
+          </div>
         <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="ca-moves-left" data-reveal="left">
+      <div class="ca-map-bg"></div> <!-- background image layer -->
+      <div class="ca-moves-content"> <!-- text sits on top -->
+        <h2 class="ca-h2">California Moves Fast.<br><span class="ca-accent">Your Project Has to Move Smarter.</span></h2>
+        <p class="ca-body">California’s construction environment demands more than simply getting a building built. Projects must navigate complex requirements, evolving markets, demanding schedules, specialized systems and a wide range of stakeholders.</p>
+        <p class="ca-body">320 Grit brings an owner-focused approach to that complexity—helping teams make informed decisions, manage risk and keep the project moving toward its intended outcome.</p>
       </div>
     </div>
   </div>
@@ -123,25 +123,27 @@ $faqs = [
 <section class="ca-section ca-ring-sec" id="ca-markets">
   <div class="ca-container">
     <div class="ca-section-head" data-reveal="up">
-      <h2 class="ca-h2">Our California <span class="ca-accent">Markets</span></h2>
+      <h2 class="ca-h2">Our California <span class="hc-purple">Markets</span></h2>
     </div>
   </div>
 
   <div class="ca-ring-viewport" id="ca-ring">
     <div class="ca-ring-stage" id="ca-ring-stage">
       <?php foreach ($markets as $i => $m) : ?>
-      <article class="ca-ring-card" data-index="<?php echo $i; ?>">
-        <div class="ca-ring-card-inner">
-          <div class="ca-ring-img">
-            <img src="<?php echo $m['img']; ?>" alt="<?php echo $m['title']; ?>" width="400" height="260" loading="lazy">
+        <article class="ca-ring-card" data-index="<?php echo $i; ?>">
+          <div class="ca-ring-card-inner">
+            <div class="ca-ring-img">
+              <img src="<?php echo $m['img']; ?>" alt="<?php echo $m['title']; ?>" width="400" height="260" loading="lazy">
+            </div>
+            <div class="ca-ring-body">
+              <h3><?php echo $m['title']; ?></h3>
+              <p><?php echo $m['text']; ?></p>
+              <a href="<?php echo $m['link']; ?>" class="ca-link">Explore Market <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></a>
+            </div>
           </div>
-          <div class="ca-ring-body">
-            <h3><?php echo $m['title']; ?></h3>
-            <p><?php echo $m['text']; ?></p>
-            <a href="<?php echo $m['link']; ?>" class="ca-link">Explore Market <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
-      </article>
+        </article>
       <?php endforeach; ?>
     </div>
   </div>
@@ -150,7 +152,7 @@ $faqs = [
     <span>Scroll to rotate</span>
     <div class="ca-ring-dots" id="ca-ring-dots">
       <?php foreach ($markets as $i => $m) : ?>
-      <button type="button" class="ca-dot<?php echo $i === 0 ? ' is-active' : ''; ?>" data-index="<?php echo $i; ?>" aria-label="<?php echo $m['title']; ?>"></button>
+        <button type="button" class="ca-dot<?php echo $i === 0 ? ' is-active' : ''; ?>" data-index="<?php echo $i; ?>" aria-label="<?php echo $m['title']; ?>"></button>
       <?php endforeach; ?>
     </div>
   </div>
@@ -158,31 +160,7 @@ $faqs = [
 
 
 <!-- ============================================================
-     04 — SERVICES
-     ============================================================ -->
-<section class="ca-section ca-services" id="ca-services">
-  <div class="ca-container">
-    <div class="ca-section-head" data-reveal="up">
-      <h2 class="ca-h2">Our <span class="ca-accent">Services</span></h2>
-    </div>
-    <div class="ca-svc-grid">
-      <?php foreach ($services as $i => $s) : ?>
-      <div class="ca-svc-card" data-reveal="up" data-delay="<?php echo $i * 70; ?>">
-        <div class="ca-svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $s['icon']; ?></svg></div>
-        <h3><?php echo $s['title']; ?></h3>
-        <p><?php echo $s['text']; ?></p>
-      </div>
-      <?php endforeach; ?>
-    </div>
-    <div class="ca-center" data-reveal="up" style="margin-top:2.5rem">
-      <a href="#contact" class="ca-btn ca-btn-ghost">View All Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     05 — STATE MAP + HQ
+     04 — STATE MAP + HQ
      ============================================================ -->
 <section class="ca-section ca-presence" id="ca-presence">
   <div class="ca-container ca-presence-grid">
@@ -192,15 +170,25 @@ $faqs = [
         <div class="ca-radar-ring r2"></div>
         <div class="ca-radar-ring r3"></div>
         <svg viewBox="0 0 280 340" class="ca-state-full" aria-label="California map">
-          <path d="M55 30 L130 12 L210 40 L225 100 L210 170 L195 240 L160 300 L100 320 L55 280 L35 200 L25 120 Z" fill="rgba(255,92,0,0.06)" stroke="rgba(255,92,0,0.45)" stroke-width="1.5"/>
+          <path d="M55 30 L130 12 L210 40 L225 100 L210 170 L195 240 L160 300 L100 320 L55 280 L35 200 L25 120 Z" fill="rgba(255,92,0,0.06)" stroke="rgba(255,92,0,0.45)" stroke-width="1.5" />
           <!-- cities -->
-          <g class="ca-city" transform="translate(130,55)"><circle r="5" fill="#FF5C00"/><text y="-12" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">SACRAMENTO</text></g>
-          <g class="ca-city" transform="translate(85,100)"><circle r="4.5" fill="#FF5C00"/><text x="-8" y="-10" text-anchor="end" fill="#fff" font-size="10" font-weight="600">SAN FRANCISCO</text></g>
-          <g class="ca-city" transform="translate(105,125)"><circle r="4.5" fill="#FF5C00"/><text x="10" y="4" fill="#fff" font-size="10" font-weight="600">SAN JOSE</text></g>
-          <g class="ca-city" transform="translate(140,230)"><circle r="5.5" fill="#FF5C00"/><text y="-12" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">LOS ANGELES</text></g>
-          <g class="ca-city" transform="translate(155,290)"><circle r="4.5" fill="#FF5C00"/><text y="16" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">SAN DIEGO</text></g>
+          <g class="ca-city" transform="translate(130,55)">
+            <circle r="5" fill="#FF5C00" /><text y="-12" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">SACRAMENTO</text>
+          </g>
+          <g class="ca-city" transform="translate(85,100)">
+            <circle r="4.5" fill="#FF5C00" /><text x="-8" y="-10" text-anchor="end" fill="#fff" font-size="10" font-weight="600">SAN FRANCISCO</text>
+          </g>
+          <g class="ca-city" transform="translate(105,125)">
+            <circle r="4.5" fill="#FF5C00" /><text x="10" y="4" fill="#fff" font-size="10" font-weight="600">SAN JOSE</text>
+          </g>
+          <g class="ca-city" transform="translate(140,230)">
+            <circle r="5.5" fill="#FF5C00" /><text y="-12" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">LOS ANGELES</text>
+          </g>
+          <g class="ca-city" transform="translate(155,290)">
+            <circle r="4.5" fill="#FF5C00" /><text y="16" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">SAN DIEGO</text>
+          </g>
           <!-- connection lines -->
-          <path d="M130 55 L85 100 L105 125 L140 230 L155 290" fill="none" stroke="rgba(255,92,0,0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <path d="M130 55 L85 100 L105 125 L140 230 L155 290" fill="none" stroke="rgba(255,92,0,0.35)" stroke-width="1.5" stroke-dasharray="4 4" />
         </svg>
       </div>
     </div>
@@ -218,6 +206,32 @@ $faqs = [
 
 
 <!-- ============================================================
+     05 — SERVICES
+     ============================================================ -->
+<section class="ca-section" id="ca-services">
+  <div class="ca-container">
+    <div class="ca-section-head" data-reveal="up">
+      <h2 class="ca-h2">Our <span class="hc-purple">Services</span></h2>
+    </div>
+    <div class="ca-svc-grid">
+      <?php foreach ($services as $i => $s) : ?>
+        <div class="ca-svc-card" data-reveal="up" data-delay="<?php echo $i * 70; ?>">
+          <div class="ca-svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $s['icon']; ?></svg></div>
+          <h3><?php echo $s['title']; ?></h3>
+          <p><?php echo $s['text']; ?></p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <div class="ca-center" data-reveal="up" style="margin-top:2.5rem">
+      <a href="#contact" class="ca-btn ca-btn-ghost-purple">View All Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
      06 — HOME + HOW CA WORKS
      ============================================================ -->
 <section class="ca-section ca-home" id="ca-home">
@@ -225,7 +239,9 @@ $faqs = [
     <div class="ca-home-left" data-reveal="left">
       <span class="ca-eyebrow">Our California Home</span>
       <p class="ca-body">Based in California, 320 Grit is positioned to support owners and project teams throughout the state.</p>
-      <a href="#contact" class="ca-btn ca-btn-ghost" style="margin-top:1.25rem">View Directions <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#contact" class="ca-btn ca-btn-ghost" style="margin-top:1.25rem">View Directions <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></a>
       <div class="ca-hq-card">
         <div class="ca-hq-pin">📍</div>
         <div>
@@ -238,11 +254,11 @@ $faqs = [
       <h2 class="ca-h2">Built Around the Way<br><span class="ca-accent">California Works</span></h2>
       <div class="ca-works-grid">
         <?php foreach ($ca_works as $i => $w) : ?>
-        <div class="ca-works-item" data-reveal="up" data-delay="<?php echo $i * 80; ?>">
-          <span class="ca-works-num"><?php echo $w['num']; ?></span>
-          <h3><?php echo $w['title']; ?></h3>
-          <p><?php echo $w['text']; ?></p>
-        </div>
+          <div class="ca-works-item" data-reveal="up" data-delay="<?php echo $i * 80; ?>">
+            <span class="ca-works-num"><?php echo $w['num']; ?></span>
+            <h3><?php echo $w['title']; ?></h3>
+            <p><?php echo $w['text']; ?></p>
+          </div>
         <?php endforeach; ?>
       </div>
     </div>
@@ -253,19 +269,19 @@ $faqs = [
 <!-- ============================================================
      07 — WHY 320 GRIT
      ============================================================ -->
-<section class="ca-section ca-why" id="ca-why">
+<section class="ca-section" id="ca-why">
   <div class="ca-container">
     <div class="ca-section-head" data-reveal="up">
-      <h2 class="ca-h2">Why 320 Grit<br><span class="ca-accent">in California?</span></h2>
+      <h2 class="ca-h2">Why 320 Grit<br><span class="hc-purple">in California?</span></h2>
       <p class="ca-lead" style="margin-inline:auto">We bring the focus, expertise and accountability needed to help your project succeed.</p>
     </div>
     <div class="ca-why-grid">
       <?php foreach ($why as $i => $w) : ?>
-      <div class="ca-why-card" data-reveal="up" data-delay="<?php echo $i * 70; ?>">
-        <div class="ca-why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $w['icon']; ?></svg></div>
-        <h3><?php echo $w['title']; ?></h3>
-        <p><?php echo $w['text']; ?></p>
-      </div>
+        <div class="ca-why-card" data-reveal="up" data-delay="<?php echo $i * 70; ?>">
+          <div class="ca-why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $w['icon']; ?></svg></div>
+          <h3><?php echo $w['title']; ?></h3>
+          <p><?php echo $w['text']; ?></p>
+        </div>
       <?php endforeach; ?>
     </div>
   </div>
@@ -285,10 +301,10 @@ $faqs = [
     <p class="ca-lead">Our responsibility doesn’t end at the property line. As 320 Grit grows in California, we aim to build meaningful relationships with the communities, organizations and people connected to the places where we work.</p>
     <div class="ca-beyond-row">
       <?php foreach ($beyond as $b) : ?>
-      <div class="ca-beyond-item">
-        <div class="ca-beyond-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $b['icon']; ?></svg></div>
-        <span><?php echo $b['title']; ?></span>
-      </div>
+        <div class="ca-beyond-item">
+          <div class="ca-beyond-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><?php echo $b['icon']; ?></svg></div>
+          <span><?php echo $b['title']; ?></span>
+        </div>
       <?php endforeach; ?>
     </div>
   </div>
@@ -298,20 +314,22 @@ $faqs = [
 <!-- ============================================================
      09 — FAQ
      ============================================================ -->
-<section class="ca-section ca-faq" id="ca-faq">
+<section class="ca-section" id="ca-faq">
   <div class="ca-container">
     <div class="ca-section-head" data-reveal="up">
-      <h2 class="ca-h2">California <span class="ca-accent">FAQ</span></h2>
+      <h2 class="ca-h2">California <span class="hc-purple">FAQ</span></h2>
     </div>
     <div class="ca-faq-grid" data-reveal="up">
       <?php foreach ($faqs as $i => $f) : ?>
-      <div class="ca-faq-item">
-        <button type="button" class="ca-faq-q" aria-expanded="false">
-          <span><?php echo $f['q']; ?></span>
-          <span class="ca-faq-icon">+</span>
-        </button>
-        <div class="ca-faq-a"><p><?php echo $f['a']; ?></p></div>
-      </div>
+        <div class="ca-faq-item">
+          <button type="button" class="ca-faq-q" aria-expanded="false">
+            <span><?php echo $f['q']; ?></span>
+            <span class="ca-faq-icon">+</span>
+          </button>
+          <div class="ca-faq-a">
+            <p><?php echo $f['a']; ?></p>
+          </div>
+        </div>
       <?php endforeach; ?>
     </div>
   </div>
@@ -329,6 +347,8 @@ $faqs = [
   <div class="ca-container ca-cta-inner" data-reveal="up">
     <h2 class="ca-display">Build What’s Next<br><span class="ca-accent">in California.</span></h2>
     <p class="ca-lead">Have a project taking shape in California? Let’s talk about what it will take to deliver it well.</p>
-    <a href="#contact" class="ca-btn ca-btn-primary ca-btn-lg">Start a Project <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#contact" class="ca-btn ca-btn-primary ca-btn-lg">Start a Project <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg></a>
   </div>
 </section>

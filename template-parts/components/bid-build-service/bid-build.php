@@ -31,7 +31,7 @@ $faqs = array(
 <!-- ======================================================
 SECTION 01: HERO
 ====================================================== -->
-<section class="ew-hero" id="ew-hero">
+<section class="ew-hero" id="hero" data-section="hero">
   <div class="ew-hero__bg">
     <img src="/wp-content/uploads/2026/08/labour-320-grit.webp" alt="Bid-Build Service" class="ew-hero__bg-img">
     <div class="ew-hero__overlay"></div>
@@ -68,7 +68,7 @@ SECTION 01: HERO
 <!-- ============================================
 SECTION 02: WHY FORENSIC ACCOUNTING 
 ============================================ -->
-<section class="service-why" id="service-why" data-section="service-why">
+<section class="service-why" id="service-why" data-section="why">
   <div class="service-why__container">
 
     <!-- Right Content -->
@@ -133,9 +133,9 @@ SECTION 02: WHY FORENSIC ACCOUNTING
 <!-- END SECTION 02: WHY FORENSIC ACCOUNTING -->
 
 <!-- ============================================
-SECTION 02: What is
+SECTION 03: What is
 ============================================ -->
-<section class="service-what-is" id="service-what-is" data-section="service-what-is">
+<section class="service-what-is" id="service-what-is" data-section="what">
   <div class="service-what-is__container">
 
     <!-- Left Content -->
@@ -220,7 +220,7 @@ SECTION 02: What is
 <!-- ============================================
 SECTION 06: INVESTIGATIVE PROCESS
 ============================================ -->
-<section class="fa-process" id="process">
+<section class="fa-process" id="process" data-section="process">
   <div class="fa-process__header">
     <p class="section-eyebrow">How We Work</p>
     <h2 class="section-headline">Our Investigative Process</h2>
@@ -273,7 +273,7 @@ SECTION 06: INVESTIGATIVE PROCESS
 <!-- ============================================
 SECTION 08: INDUSTRIES WE SUPPORT
 ============================================ -->
-<section class="fa-industries" id="industries">
+<section class="fa-industries" id="industries" data-section="industries">
   <div class="fa-industries__bg">
     <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80" alt="City skyline">
   </div>
@@ -470,7 +470,7 @@ SECTION 09: Cards Section for later use
 <!-- ============================================
 SECTION 09: WHY CHOOSE 320 GRIT
 ============================================ -->
-<section class="fa-choose" id="why-choose">
+<section class="fa-choose" id="why-320" data-section="why-320">
   <div class="fa-choose__inner">
     <div class="fa-choose__left">
       <p class="section-eyebrow">Our Difference</p>
@@ -508,7 +508,7 @@ SECTION 09: WHY CHOOSE 320 GRIT
 <!-- ============================================
 SECTION 12: CTA
 ============================================ -->
-<section class="cta-section" id="cta">
+<section class="cta-section" id="get-started" data-section="get-started">
   <div class="cta-bg">
     <div class="gradient-mesh"></div>
     <div class="particles" id="particles"></div>
@@ -524,7 +524,7 @@ SECTION 12: CTA
 <!-- ============================================
 SECTION 13: FAQ
 ============================================ -->
-<section class="faq-section" id="faq">
+<section class="faq-section" id="faq" data-section="faq">
   <div class="faq-layout">
     <div class="faq-header">
       <p class="section-eyebrow">Common Questions</p>
