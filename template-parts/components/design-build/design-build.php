@@ -35,7 +35,7 @@ $faqs = array(
 <!-- ======================================================
 SECTION 01: HERO
 ====================================================== -->
-<section class="ew-hero" id="ew-hero">
+<section class="ew-hero" id="hero">
     <div class="ew-hero__bg">
         <img src="/wp-content/uploads/2026/08/commercial-construction.webp" alt="Forensic Accounting" class="ew-hero__bg-img">
         <div class="ew-hero__overlay"></div>

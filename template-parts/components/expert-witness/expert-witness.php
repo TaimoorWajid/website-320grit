@@ -20,7 +20,7 @@ $faqs = array(
 <!-- ======================================================
 SECTION 01: HERO
 ====================================================== -->
-<section class="ew-hero" id="ew-hero">
+<section class="ew-hero" id="hero">
   <div class="ew-hero__bg">
     <img src="/wp-content/uploads/2026/08/ChatGPT-Image-Aug-9-2026-12_23_33-AM.webp" alt="Expert Witness - Construction Litigation" class="ew-hero__bg-img">
     <div class="ew-hero__overlay"></div>
