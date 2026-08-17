@@ -17,12 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     smoothTouch: false,
   });
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
+  // Integrate Lenis with GSAP ticker — use a single RAF path to avoid double updates
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
@@ -74,39 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
 // SECTION 01: HERO
 // ======================================================
 
-  // Hero Character Split
-  const headline = document.getElementById('faHeroHeadline');
-  if (headline) {
-    const text = headline.textContent;
-    headline.innerHTML = '';
-    text.split('').forEach((char, i) => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = char === ' ' ? '\u00A0' : char;
-      span.style.animationDelay = (1.6 + i * 0.025) + 's';
-      headline.appendChild(span);
-    });
-  }
+  // Hero Character Split + Entrance Animations (guarded to avoid missing-target warnings)
+  const heroRoot = document.querySelector('.fa-hero');
+  if (heroRoot) {
+    const headline = document.getElementById('faHeroHeadline');
+    if (headline) {
+      const text = headline.textContent;
+      headline.innerHTML = '';
+      text.split('').forEach((char, i) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.animationDelay = (1.6 + i * 0.025) + 's';
+        headline.appendChild(span);
+      });
+    }
 
-  // Hero Entrance Animations
-  gsap.to('.fa-hero__eyebrow', {
-    opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 1.4
-  });
-  gsap.to('.fa-hero__headline .char', {
-    opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.025, delay: 1.6
-  });
-  gsap.to('.fa-hero__subheadline', {
-    opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.2
-  });
-  gsap.to('.fa-hero__body', {
-    opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.4
-  });
-  gsap.to('.fa-hero__ctas', {
-    opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.6
-  });
-  gsap.to('.fa-hero__scroll', {
-    opacity: 1, duration: 0.8, ease: 'expo.out', delay: 3.0
-  });
+    // Entrance animations
+    const ensure = (sel, props) => { if (document.querySelector(sel)) gsap.to(sel, props); };
+    ensure('.fa-hero__eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 1.4 });
+    ensure('.fa-hero__headline .char', { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.025, delay: 1.6 });
+    ensure('.fa-hero__subheadline', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.2 });
+    ensure('.fa-hero__body', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.4 });
+    ensure('.fa-hero__ctas', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', delay: 2.6 });
+    ensure('.fa-hero__scroll', { opacity: 1, duration: 0.8, ease: 'expo.out', delay: 3.0 });
+  }
 
   // Hero Scroll Parallax (Pin + Fade)
   const heroSection = document.querySelector('.fa-hero');

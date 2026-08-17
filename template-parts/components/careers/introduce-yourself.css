@@ -1,0 +1,464 @@
+/* =========================================================
+   320 GRIT — INTRODUCE YOURSELF PAGE STYLES
+   ========================================================= */
+
+.grit-careers-page {
+	--grit-purple: #792CD5;
+	--grit-purple-hover: #8F5CFF;
+	--grit-orange: #FF5C00;
+	--grit-dark: #0D0D0D;
+	--grit-white: #FFFFFF;
+	--grit-gray-50: #FAFAFA;
+	--grit-gray-100: #F5F5F5;
+	--grit-gray-200: #E5E5E5;
+	--grit-gray-300: #D4D4D4;
+	--grit-gray-400: #A3A3A3;
+	--grit-gray-500: #737373;
+	--grit-gray-600: #525252;
+	--grit-gray-700: #404040;
+	--grit-font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--grit-radius: 8px;
+	--grit-radius-lg: 12px;
+	--grit-transition: 0.2s ease;
+
+	font-family: var(--grit-font-sans);
+	color: var(--grit-dark);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+.grit-careers-page *,
+.grit-careers-page *::before,
+.grit-careers-page *::after {
+	box-sizing: border-box;
+}
+
+.grit-careers-page .grit-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.875rem 1.5rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color var(--grit-transition), border-color var(--grit-transition), color var(--grit-transition);
+	line-height: 1.2;
+	background: none;
+	font-family: inherit;
+}
+
+.grit-careers-page .grit-btn--lg {
+	padding: 1rem 1.75rem;
+	font-size: 0.9375rem;
+}
+
+.grit-careers-page .grit-btn--primary {
+	background-color: var(--grit-purple);
+	color: var(--grit-white);
+	border-color: var(--grit-purple);
+}
+
+.grit-careers-page .grit-btn--primary:hover,
+.grit-careers-page .grit-btn--primary:focus-visible {
+	background-color: var(--grit-purple-hover);
+	border-color: var(--grit-purple-hover);
+	color: var(--grit-white);
+}
+
+.grit-careers-page .grit-btn:focus-visible {
+	outline: 2px solid var(--grit-purple);
+	outline-offset: 2px;
+}
+
+.grit-careers-page .grit-required {
+	color: var(--grit-orange);
+}
+
+.grit-careers-page .grit-optional {
+	font-weight: 400;
+	color: var(--grit-gray-400);
+}
+
+/* =========================================================
+   SECTION 01 — HERO
+   ========================================================= */
+.grit-careers-page .grit-intro-hero {
+	position: relative;
+	min-height: 380px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	color: var(--grit-white);
+}
+
+.grit-careers-page .grit-intro-hero__bg {
+	position: absolute;
+	inset: 0;
+}
+
+.grit-careers-page .grit-intro-hero__bg img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.grit-careers-page .grit-intro-hero__overlay {
+	position: absolute;
+	inset: 0;
+	}
+
+.grit-careers-page .grit-intro-hero__content {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	max-width: 800px;
+	padding: 4rem 1.5rem;
+}
+
+.grit-careers-page .grit-intro-hero__title {
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+	margin: 0 0 1rem;
+}
+
+.grit-careers-page .grit-intro-hero__title span {
+	color: var(--grit-purple);
+}
+
+.grit-careers-page .grit-intro-hero__subtitle {
+	font-size: 1.125rem;
+	color: rgba(255,255,255,0.85);
+	margin: 0;
+}
+
+/* =========================================================
+   SECTION 02 — LAYOUT + REASONS
+   ========================================================= */
+.grit-careers-page .grit-intro-layout {
+	background: var(--grit-gray-50);
+	padding: 4rem 0;
+}
+
+.grit-careers-page .grit-intro-layout__inner {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+	display: grid;
+	grid-template-columns: 340px 1fr;
+	gap: 3rem;
+	align-items: start;
+}
+
+.grit-careers-page .grit-intro-reasons__title {
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin: 0 0 1.75rem;
+	color: var(--grit-dark);
+}
+.grit-intro-reasons__title h3 {
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin: 0 0 1.75rem;
+	color: var(--grit-dark);
+}
+
+.grit-careers-page .grit-intro-reasons__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+}
+
+.grit-careers-page .grit-intro-reasons__item {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.grit-careers-page .grit-intro-reasons__icon {
+	flex-shrink: 0;
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #F3E8FF;
+	border-radius: var(--grit-radius);
+	color: var(--grit-purple);
+}
+
+.grit-careers-page .grit-intro-reasons__item h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	margin: 0 0 0.25rem;
+}
+
+.grit-careers-page .grit-intro-reasons__item p {
+	font-size: 0.9375rem;
+	color: var(--grit-gray-600);
+	margin: 0;
+	line-height: 1.5;
+}
+
+/* =========================================================
+   SECTION 03 — FORM
+   ========================================================= */
+.grit-careers-page .grit-intro-form-wrap {
+	background: var(--grit-white);
+	border: 1px solid var(--grit-gray-200);
+	border-radius: var(--grit-radius-lg);
+	padding: 2rem 2.25rem;
+}
+
+.grit-careers-page .grit-intro-form__title {
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin: 0 0 1.75rem;
+	color: var(--grit-dark);
+}
+
+.grit-careers-page .grit-form-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.25rem;
+	margin-bottom: 1.75rem;
+}
+
+.grit-careers-page .grit-form-field--full {
+	grid-column: 1 / -1;
+}
+
+.grit-careers-page .grit-form-field label {
+	display: block;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	margin-bottom: 0.375rem;
+	color: var(--grit-gray-700);
+}
+
+.grit-careers-page .grit-form-field input[type="text"],
+.grit-careers-page .grit-form-field input[type="email"],
+.grit-careers-page .grit-form-field input[type="tel"],
+.grit-careers-page .grit-form-field input[type="url"],
+.grit-careers-page .grit-form-field select,
+.grit-careers-page .grit-form-field textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	font-size: 0.9375rem;
+	border: 1px solid var(--grit-gray-200);
+	border-radius: var(--grit-radius);
+	background: var(--grit-white);
+	color: var(--grit-dark);
+	font-family: inherit;
+	transition: border-color var(--grit-transition);
+}
+
+.grit-careers-page .grit-form-field input:focus,
+.grit-careers-page .grit-form-field select:focus,
+.grit-careers-page .grit-form-field textarea:focus {
+	outline: none;
+	border-color: var(--grit-purple);
+}
+
+.grit-careers-page .grit-form-field input.is-invalid,
+.grit-careers-page .grit-form-field select.is-invalid,
+.grit-careers-page .grit-form-field textarea.is-invalid {
+	border-color: #DC2626;
+}
+
+.grit-careers-page .grit-field-error {
+	display: block;
+	font-size: 0.75rem;
+	color: #DC2626;
+	margin-top: 0.25rem;
+	min-height: 1.1em;
+}
+
+.grit-careers-page .grit-form-field textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+/* File upload */
+.grit-careers-page .grit-file-upload {
+	position: relative;
+}
+
+.grit-careers-page .grit-file-input {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.grit-careers-page .grit-file-upload__zone {
+	border: 2px dashed var(--grit-gray-300);
+	border-radius: var(--grit-radius);
+	padding: 1.5rem;
+	text-align: center;
+	background: var(--grit-gray-50);
+	color: var(--grit-gray-500);
+	transition: border-color var(--grit-transition), background-color var(--grit-transition);
+}
+
+.grit-careers-page .grit-file-upload.is-dragover .grit-file-upload__zone,
+.grit-careers-page .grit-file-upload__zone:hover {
+	border-color: var(--grit-purple);
+	background: #F8F0FF;
+}
+
+.grit-careers-page .grit-file-upload__text {
+	margin: 0.5rem 0 0.25rem;
+	font-size: 0.875rem;
+}
+
+.grit-careers-page .grit-file-upload__browse {
+	color: var(--grit-purple);
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.grit-careers-page .grit-file-upload__hint {
+	font-size: 0.75rem;
+	margin: 0;
+	color: var(--grit-gray-400);
+}
+
+.grit-careers-page .grit-file-upload__preview {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+	background: var(--grit-gray-50);
+	border: 1px solid var(--grit-gray-200);
+	border-radius: var(--grit-radius);
+	margin-top: 0.5rem;
+}
+
+.grit-careers-page .grit-file-upload__name {
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.grit-careers-page .grit-file-upload__remove {
+	background: none;
+	border: none;
+	font-size: 1.25rem;
+	cursor: pointer;
+	color: var(--grit-gray-500);
+	padding: 0 0.25rem;
+}
+
+.grit-careers-page .grit-checkbox-label {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	font-size: 0.875rem;
+	font-weight: 400 !important;
+	cursor: pointer;
+	line-height: 1.5;
+}
+
+.grit-careers-page .grit-checkbox-label input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	margin-top: 0.15rem;
+	flex-shrink: 0;
+	accent-color: var(--grit-purple);
+}
+
+.grit-careers-page .grit-intro-form__submit {
+	width: 100%;
+}
+
+/* =========================================================
+   SECTION 04 — SUCCESS
+   ========================================================= */
+.grit-careers-page .grit-intro-success {
+	text-align: center;
+	padding: 2.5rem 1rem;
+}
+
+.grit-careers-page .grit-intro-success__icon {
+	color: var(--grit-purple);
+	margin-bottom: 1.25rem;
+}
+
+.grit-careers-page .grit-intro-success__title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin: 0 0 0.75rem;
+}
+
+.grit-careers-page .grit-intro-success__text {
+	font-size: 1.0625rem;
+	color: var(--grit-gray-600);
+	margin: 0 0 1.75rem;
+	max-width: 28em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* =========================================================
+   SECTION 05 — BOTTOM CTA
+   ========================================================= */
+.grit-careers-page .grit-intro-bottom-cta {
+	color: var(--grit-white);
+	padding: 3.5rem 1.5rem;
+	text-align: center;
+}
+
+.grit-careers-page .grit-intro-bottom-cta__text {
+	font-size: 1.375rem;
+	font-weight: 600;
+	margin: 0 0 1.5rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+	.grit-careers-page .grit-intro-layout__inner {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.grit-careers-page .grit-intro-hero {
+		min-height: 300px;
+	}
+
+	.grit-careers-page .grit-intro-hero__content {
+		padding: 3rem 1.25rem;
+	}
+
+	.grit-careers-page .grit-intro-layout {
+		padding: 2.5rem 0;
+	}
+
+	.grit-careers-page .grit-intro-layout__inner {
+		padding: 0 1.25rem;
+	}
+
+	.grit-careers-page .grit-intro-form-wrap {
+		padding: 1.5rem 1.25rem;
+	}
+
+	.grit-careers-page .grit-form-grid {
+		grid-template-columns: 1fr;
+	}
+}

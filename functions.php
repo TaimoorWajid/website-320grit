@@ -800,3 +800,52 @@ function grit_global_libraries() {
     wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js', [], '1.1.18', true);
 }
 add_action('wp_enqueue_scripts', 'grit_global_libraries', 5);
+
+/**
+ * Careers components: register assets and shortcodes
+ */
+function grit_enqueue_careers_component_assets($component)
+{
+    $relative = '/template-parts/components/careers/' . $component . '.css';
+    $relative_js = '/template-parts/components/careers/' . $component . '.js';
+    $css_path = get_stylesheet_directory() . $relative;
+    $js_path = get_stylesheet_directory() . $relative_js;
+    $base_handle = 'grit-careers-' . str_replace('-', '_', $component);
+
+    if (file_exists($css_path)) {
+        wp_enqueue_style($base_handle, get_stylesheet_directory_uri() . $relative, array('grit-global'), grit_asset_version($relative));
+    }
+
+    if (file_exists($js_path)) {
+        wp_enqueue_script($base_handle . '-js', get_stylesheet_directory_uri() . $relative_js, array('jquery'), grit_asset_version($relative_js), true);
+    }
+}
+
+$grit_careers_components = array(
+    'careers',
+    'open-positions',
+    'job-detail',
+    'introduce-yourself',
+    'apply-position',
+    'saved-positions',
+    'thank-you'
+);
+
+foreach ($grit_careers_components as $comp) {
+    $shortcode_tag = 'grit_careers_' . str_replace('-', '_', $comp);
+    add_shortcode($shortcode_tag, function ($atts = array(), $content = null) use ($comp) {
+        grit_enqueue_careers_component_assets($comp);
+
+        // In admin/editor contexts (classic admin or WPBakery frontend editor),
+        // return a lightweight placeholder to avoid executing full front-end
+        // templates which can cause fatal errors in the editor.
+        $vc_frontend = ! empty( $_GET['vc_editable'] ) || ! empty( $_GET['vc_frontend_editor'] ) || ! empty( $_GET['vc_action'] ) || ! empty( $_GET['vc_post_id'] );
+        if ( ( is_admin() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) || $vc_frontend ) {
+            return '<div class="grit-careers-placeholder" data-component="' . esc_attr( $comp ) . '">[Careers: ' . esc_html( $comp ) . ']</div>';
+        }
+
+        ob_start();
+        get_template_part('template-parts/components/careers/' . $comp);
+        return ob_get_clean();
+    });
+}
