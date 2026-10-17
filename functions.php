@@ -570,6 +570,15 @@ function grit_design_build_shortcode() {
 }
 add_shortcode('grit_design_build', 'grit_design_build_shortcode');
 
+function grit_home_page_faqs_shortcode() {
+    ob_start();
+
+    get_template_part('template-parts/home/home-page-faqs');
+
+    return ob_get_clean();
+}
+add_shortcode('grit_home_page_faqs', 'grit_home_page_faqs_shortcode');
+
 function grit_healthcare_shortcode() {
     ob_start();
 

@@ -14,7 +14,7 @@
     align-items: center;
 
     background: rgba(10, 10, 10, .85);
-    border: 2px solid #792CD5;
+    border: 2px solid #FF5D0E;
 
     text-align: center;
 }
@@ -38,3 +38,11 @@
 }
 
 /* 25+ years card on hero section */
+
+@media (max-width: 690px) {
+    .home-page-hero-top-text h5,
+    .home-page-hero-top-text p {
+        line-height: 18px !important;
+        margin: 35px 0;
+    }
+}

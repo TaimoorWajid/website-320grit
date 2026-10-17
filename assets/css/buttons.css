@@ -20,16 +20,16 @@
     justify-content:center;
     gap:16px;
 
-    min-width:260px;
+    min-width:272px;
     height:60px;
 
-    padding:0 30px;
+    padding:0 28px;
 
     font-family:'Barlow',sans-serif;
     font-size:14px;
     font-weight:700;
 
-    letter-spacing:1px;
+    letter-spacing:0px;
     text-transform:uppercase;
     text-decoration:none;
     border-radius: 10px;
